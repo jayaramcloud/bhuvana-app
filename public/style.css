@@ -62,11 +62,11 @@ h1 { color: #f6821f; margin-top: 0; }
   padding: 0.5rem 1rem;
   border: 0;
   border-radius: 6px;
-  background: #f6821f;
+  background: #3b82f6;
   color: white;
   cursor: pointer;
 }
-.cta:hover { background: #d96d10; }
+.cta:hover { background: #2563eb; }
 
 a { color: #d96d10; }
 
