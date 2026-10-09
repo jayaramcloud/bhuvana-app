@@ -76,6 +76,9 @@ h1 { color: #f6821f; margin-top: 0; }
   z-index: 10;
 }
 
+/* ---- Home intro paragraph ---- */
+.home-intro { font-size: 16px; }
+
 .cta {
   font-size: 1rem;
   padding: 0.5rem 1rem;
