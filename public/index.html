@@ -62,63 +62,448 @@
 
         <div class="subtab-pane active" data-subpane="playwright">
           <h2>Playwright</h2>
-          <ol>
-            <li>What is Playwright?</li>
-            <li>What is the difference between Selenium and Playwright?</li>
-            <li>What are the advantages of a Playwright?</li>
-            <li>Name some disadvantages of Playwright.</li>
-            <li>What are the different testing types the Playwright supports?</li>
-            <li>What are the programming languages that the Playwright supports?</li>
-            <li>Briefly describe the commands that are used for Playwright installation and execution of tests.</li>
-            <li>What is a Configuration File in Playwright? Explain.</li>
-            <li>What is the @playwright/test package in Playwright?</li>
-            <li>What is the Page class in Playwright?</li>
-            <li>How to navigate to specific URLs in Playwright? Explain with sample tests.</li>
-            <li>What are the different types of reporters that Playwright supports?</li>
-            <li>What are the locators in Playwright? List any five.</li>
-            <li>What are the different types of text selectors available in Playwright?</li>
-            <li>How to use assertions in Playwright? List any 5.</li>
-            <li>What are soft assertions in Playwright?</li>
-            <li>How to negate the matchers/assertions in Playwright? Or how can I verify "not" conditions in Playwright?</li>
-            <li>Does Playwright support XPath? If so, how can I use them in the test?</li>
-            <li>What are command line options in Playwright? Explain 5 helpful options.</li>
-            <li>Some of the important command line options.</li>
-            <li>What is headed and headless mode in Playwright?</li>
-            <li>Does Playwright support HTML reporters? How to generate HTML reports in Playwright?</li>
-            <li>What are timeouts in Playwright? What are the different types of timeouts available in Playwright?</li>
-            <li>How to navigate forward and backward in Playwright?</li>
-            <li>How to perform actions using Playwright?</li>
-            <li>Does Playwright support the Safari browser? If so, can we execute the test on Safari?</li>
-            <li>How to wait for a specific element in Playwright?</li>
-            <li>What is browser context?</li>
-            <li>How to open multiple windows in Playwright?</li>
-            <li>How to handle iFrame in Playwright?</li>
-            <li>Explain some of the click and double click actions with their options.</li>
-            <li>How to perform a right-click in Playwright?</li>
-            <li>How to evaluate JavaScript in Playwright?</li>
-            <li>What are Playwright fixtures?</li>
-            <li>What is CodeGen in Playwright?</li>
-            <li>How to parameterize tests in Playwright?</li>
-            <li>Write a code to upload the file.</li>
-            <li>Write a code to download the file.</li>
-            <li>How to perform drag and drop in Playwright?</li>
-            <li>How to handle browser popups or dialogs?</li>
-            <li>What is the testInfo object?</li>
-            <li>What is the testError object?</li>
-            <li>What is global setup and teardown? Explain.</li>
-            <li>How to capture network logs in Playwright?</li>
-            <li>How to capture screenshots in Playwright?</li>
-            <li>Does Playwright support API testing? If so, how can we perform API testing?</li>
-            <li>What is Visual Testing? Why do we need it?</li>
-            <li>Write a simple code to test visually.</li>
-            <li>How to configure multiple reporters in Playwright?</li>
-            <li>What is the serial mode in Playwright?</li>
-            <li>How to perform parallel execution in Playwright?</li>
-            <li>How to perform mobile device emulation in Playwright?</li>
-            <li>Mention some of the helpful ways to debug Playwright tests.</li>
-            <li>What is actionability in Playwright? Explain in detail.</li>
-            <li>Mention some of the advantages of Playwright compared to Cypress.</li>
-          </ol>
+
+          <h3 class="qa-group">Fundamentals</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">What is Playwright?</p>
+            <p class="qa-a">Playwright is an open-source browser automation framework. Playwright Test adds a test runner, assertions, fixtures, parallel execution, and reporting for end-to-end and other browser tests. It supports Chromium, Firefox, and WebKit.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">1. What is the difference between Selenium and Playwright?</p>
+            <p class="qa-a">Both automate browsers, but Playwright provides built-in auto-waiting, browser contexts for isolated sessions, and a test runner with assertions and reporting. Selenium supports a broader range of browsers and languages, and uses the WebDriver standard. Choose based on your project&rsquo;s browser, language, and infrastructure needs.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">2. What are the advantages of Playwright?</p>
+            <ul class="qa-a">
+              <li>Auto-waits for elements to be ready before acting.</li>
+              <li>Supports Chromium, Firefox, and WebKit.</li>
+              <li>Provides isolated browser contexts, parallel execution, retries, tracing, and screenshots.</li>
+              <li>Includes useful locators and retrying assertions.</li>
+              <li>Supports browser tests and API testing in one test framework.</li>
+            </ul>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">3. Name some disadvantages of Playwright.</p>
+            <ul class="qa-a">
+              <li>The team needs to learn its APIs and test runner.</li>
+              <li>Browser binaries and dependencies add setup requirements.</li>
+              <li>WebKit testing approximates Safari behavior but is not the same as running Apple Safari itself.</li>
+              <li>Some third-party integrations or browser-specific tooling may be less mature than alternatives.</li>
+              <li>Tests still need careful design; auto-waiting cannot fix unstable test data or application defects.</li>
+            </ul>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">4. What testing types does Playwright support?</p>
+            <p class="qa-a">It is commonly used for end-to-end UI testing and API testing. Playwright also offers component testing for supported frontend frameworks. Teams can combine these with visual comparisons, accessibility checks, and cross-browser testing.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">5. What programming languages does Playwright support?</p>
+            <p class="qa-a">The official Playwright libraries support JavaScript/TypeScript, Python, Java, and .NET (C#). Playwright Test is the JavaScript/TypeScript test runner.</p>
+          </div>
+
+          <h3 class="qa-group">Setup and test organization</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">6. What commands install Playwright and run tests?</p>
+            <pre class="qa-code"><code>npm init playwright@latest
+npx playwright test</code></pre>
+            <p class="qa-a">The setup command creates a starter project and can install browser binaries. Other useful commands:</p>
+            <pre class="qa-code"><code>npx playwright test --headed
+npx playwright test --ui
+npx playwright show-report</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">7. What is a configuration file in Playwright?</p>
+            <p class="qa-a"><code>playwright.config.ts</code> centralizes test settings such as test folders, browsers, base URL, timeouts, retries, workers, and reporters.</p>
+            <pre class="qa-code"><code>import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests',
+  use: {
+    baseURL: 'https://example.com',
+    ...devices['Desktop Chrome'],
+  },
+  reporter: 'html',
+});</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">8. What is the @playwright/test package?</p>
+            <p class="qa-a">It is Playwright&rsquo;s JavaScript/TypeScript test framework package. It includes the test runner, <code>test</code> and <code>expect</code>, fixtures, browser management, and reporting.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">9. What is the Page class?</p>
+            <p class="qa-a">A <code>Page</code> represents one browser tab or popup. You use it to navigate, find elements, perform actions, and observe page events.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">10. How do you navigate to a URL? Give a sample test.</p>
+            <p class="qa-a">Use <code>page.goto()</code>:</p>
+            <pre class="qa-code"><code>import { test, expect } from '@playwright/test';
+
+test('opens the home page', async ({ page }) =&gt; {
+  await page.goto('https://example.com');
+  await expect(page).toHaveTitle(/Example/);
+  await expect(page).toHaveURL('https://example.com/');
+});</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">11. What reporters does Playwright support?</p>
+            <p class="qa-a">Built-in reporters include list, line, dot, HTML, JSON, JUnit, blob, GitHub, and null. You can also write a custom reporter.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">12. What are locators? List five.</p>
+            <p class="qa-a">Locators find elements and are the recommended way to interact with them. They resolve against the current page state and support auto-waiting. Five examples:</p>
+            <pre class="qa-code"><code>page.getByRole('button', { name: 'Save' });
+page.getByText('Welcome');
+page.getByLabel('Email');
+page.getByPlaceholder('Enter email');
+page.getByTestId('submit-button');</code></pre>
+            <p class="qa-a">You can also use <code>page.locator('css=...')</code>.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">13. What text selectors are available?</p>
+            <p class="qa-a">Common options include <code>getByText('text')</code>, <code>getByText(/regular expression/)</code>, and <code>locator('text=...')</code>. Prefer <code>getByText()</code> for readable text-based queries; use role or label locators when they describe the element&rsquo;s purpose more clearly.</p>
+          </div>
+
+          <h3 class="qa-group">Assertions and selectors</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">14. How do you use assertions? List five.</p>
+            <p class="qa-a">Import <code>expect</code> and await assertions. Locator assertions retry until they pass or time out.</p>
+            <pre class="qa-code"><code>await expect(page.getByRole('heading')).toBeVisible();
+await expect(page.getByRole('button')).toBeEnabled();
+await expect(page.getByText('Saved')).toHaveText('Saved');
+await expect(page.getByLabel('Email')).toHaveValue('a@example.com');
+await expect(page).toHaveURL(/dashboard/);</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">15. What are soft assertions?</p>
+            <p class="qa-a">Soft assertions record a failure but allow the test to continue. At the end, the test is still marked failed if any soft assertion failed.</p>
+            <pre class="qa-code"><code>await expect.soft(page.getByText('Profile')).toBeVisible();
+await expect.soft(page.getByText('Settings')).toBeVisible();</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">16. How do you verify a &ldquo;not&rdquo; condition?</p>
+            <p class="qa-a">Use <code>.not</code> before the matcher:</p>
+            <pre class="qa-code"><code>await expect(page.getByText('Error')).not.toBeVisible();
+await expect(page).not.toHaveURL(/login/);</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">17. Does Playwright support XPath? How do you use it?</p>
+            <p class="qa-a">Yes, but accessible locators such as role, label, or text are generally easier to maintain.</p>
+            <pre class="qa-code"><code>await page.locator('xpath=//button[@type="submit"]').click();</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">18. What are command-line options? Explain five helpful ones.</p>
+            <p class="qa-a">Options change which tests run or how they run. Examples:</p>
+            <ul class="qa-a">
+              <li><code>--headed</code>: show the browser window.</li>
+              <li><code>--project=chromium</code>: run a configured browser project.</li>
+              <li><code>--grep "login"</code>: run tests whose titles match a pattern.</li>
+              <li><code>--workers=2</code>: set the number of concurrent workers.</li>
+              <li><code>--ui</code>: open the interactive test UI.</li>
+            </ul>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">19. Mention some important command-line options.</p>
+            <p class="qa-a">Other useful options include <code>--config</code>, <code>--debug</code>, <code>--last-failed</code>, <code>--retries</code>, <code>--timeout</code>, <code>--trace</code>, <code>--shard</code>, <code>--forbid-only</code>, and <code>--reporter</code>. Check <code>npx playwright test --help</code> for the installed version&rsquo;s options.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">20. What is headed and headless mode?</p>
+            <p class="qa-a">Headless mode runs without displaying a browser window and is the default. Headed mode displays the browser, which can help with debugging.</p>
+            <pre class="qa-code"><code>npx playwright test
+npx playwright test --headed</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">21. Does Playwright support HTML reports? How do you generate one?</p>
+            <p class="qa-a">Yes. Configure the HTML reporter, run the tests, then open the report:</p>
+            <pre class="qa-code"><code>reporter: 'html',</code></pre>
+            <pre class="qa-code"><code>npx playwright test
+npx playwright show-report</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">22. What are timeouts? What types are available?</p>
+            <p class="qa-a">A timeout is the maximum time an operation or test can wait before failing. Common timeouts include:</p>
+            <ul class="qa-a">
+              <li>Test timeout: maximum duration for a test.</li>
+              <li>Action timeout: limit for actions such as <code>click()</code>.</li>
+              <li>Assertion timeout: limit for retrying an assertion.</li>
+              <li>Navigation timeout: limit for navigation operations.</li>
+              <li>Global timeout: maximum duration for the entire test run.</li>
+            </ul>
+            <p class="qa-a">They can be set in the config or on relevant calls.</p>
+          </div>
+
+          <h3 class="qa-group">Browser navigation and interaction</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">23. How do you navigate forward and backward?</p>
+            <p class="qa-a">Use <code>page.goBack()</code> and <code>page.goForward()</code>.</p>
+            <pre class="qa-code"><code>await page.goBack();
+await page.goForward();</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">24. How do you perform actions?</p>
+            <p class="qa-a">Use locator methods such as <code>click()</code>, <code>fill()</code>, <code>check()</code>, <code>selectOption()</code>, and <code>press()</code>.</p>
+            <pre class="qa-code"><code>await page.getByLabel('Email').fill('a@example.com');
+await page.getByRole('button', { name: 'Submit' }).click();</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">25. Does Playwright support Safari?</p>
+            <p class="qa-a">Playwright supports WebKit, the browser engine used by Safari, and can run WebKit tests on supported platforms. That is useful for Safari-oriented coverage, but it is not the same as launching Apple&rsquo;s Safari application.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">26. How do you wait for a specific element?</p>
+            <p class="qa-a">Prefer a locator action or assertion, which waits automatically. For an explicit wait:</p>
+            <pre class="qa-code"><code>await page.getByRole('button', { name: 'Continue' }).waitFor({
+  state: 'visible',
+});</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">27. What is a browser context?</p>
+            <p class="qa-a">A <code>BrowserContext</code> is an isolated browser session with its own cookies, local storage, and pages. It lets tests run independently without launching a separate browser for every test.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">28. How do you open multiple windows or tabs?</p>
+            <p class="qa-a">Each tab is a <code>Page</code>. To capture a new tab opened by an action:</p>
+            <pre class="qa-code"><code>const newPagePromise = page.context().waitForEvent('page');
+await page.getByRole('link', { name: 'Open report' }).click();
+const newPage = await newPagePromise;
+await newPage.waitForLoadState();</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">29. How do you handle an iframe?</p>
+            <p class="qa-a">Use <code>frameLocator()</code> to locate and interact with elements inside the frame:</p>
+            <pre class="qa-code"><code>const frame = page.frameLocator('#payment-frame');
+await frame.getByLabel('Card number').fill('4242424242424242');</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">30. Explain click and double-click actions and options.</p>
+            <p class="qa-a">Use <code>locator.click()</code> and <code>locator.dblclick()</code>. Options include button, modifiers, position, clickCount, delay, and force. For example:</p>
+            <pre class="qa-code"><code>await page.getByText('Item').click({ button: 'left' });
+await page.getByText('Item').dblclick();</code></pre>
+            <p class="qa-a"><code>force: true</code> bypasses some actionability checks; use it only when you specifically need that behavior.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">31. How do you right-click?</p>
+            <p class="qa-a">Set the button option to right:</p>
+            <pre class="qa-code"><code>await page.getByText('File').click({ button: 'right' });</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">32. How do you evaluate JavaScript?</p>
+            <p class="qa-a">Use <code>page.evaluate()</code> to run code in the page context:</p>
+            <pre class="qa-code"><code>const title = await page.evaluate(() =&gt; document.title);</code></pre>
+            <p class="qa-a">Prefer user-facing interactions for normal tests; direct evaluation can bypass the UI behavior being tested.</p>
+          </div>
+
+          <h3 class="qa-group">Test data and browser features</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">33. What are Playwright fixtures?</p>
+            <p class="qa-a">Fixtures provide a test with the resources it needs and manage setup and cleanup. Built-in examples include <code>page</code>, <code>context</code>, <code>browser</code>, and <code>request</code>. You can also define custom fixtures.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">34. What is CodeGen?</p>
+            <p class="qa-a">CodeGen is a tool that records browser interactions and generates Playwright test code and locators.</p>
+            <pre class="qa-code"><code>npx playwright codegen https://example.com</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">35. How do you parameterize tests?</p>
+            <p class="qa-a">Use a data array and create a test for each case:</p>
+            <pre class="qa-code"><code>const users = ['alice', 'bob'];
+
+for (const user of users) {
+  test(`searches for ${user}`, async ({ page }) =&gt; {
+    await page.goto('https://example.com');
+    await page.getByRole('searchbox').fill(user);
+    await page.getByRole('button', { name: 'Search' }).click();
+  });
+}</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">36. Write code to upload a file.</p>
+            <p class="qa-a">Use <code>setInputFiles()</code> on the file input:</p>
+            <pre class="qa-code"><code>await page.getByLabel('Upload file').setInputFiles('tests/fixtures/photo.png');</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">37. Write code to download a file.</p>
+            <p class="qa-a">Wait for the download event before clicking the download control:</p>
+            <pre class="qa-code"><code>const downloadPromise = page.waitForEvent('download');
+await page.getByRole('link', { name: 'Download' }).click();
+const download = await downloadPromise;
+await download.saveAs(`downloads/${download.suggestedFilename()}`);</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">38. How do you perform drag and drop?</p>
+            <p class="qa-a">Use <code>dragTo()</code>:</p>
+            <pre class="qa-code"><code>await page.getByText('Task A').dragTo(page.getByText('Done'));</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">39. How do you handle browser popups or dialogs?</p>
+            <p class="qa-a">Register a dialog handler before triggering the action:</p>
+            <pre class="qa-code"><code>page.on('dialog', dialog =&gt; dialog.accept());
+await page.getByRole('button', { name: 'Delete' }).click();</code></pre>
+            <p class="qa-a">For a popup window, wait for the context&rsquo;s page event as shown in question 28.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">40. What is the testInfo object?</p>
+            <p class="qa-a"><code>testInfo</code> contains details about the current test run, such as its title, status, retry number, attachments, output directory, and project configuration. It is available as a test callback parameter.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">41. What is the testError object?</p>
+            <p class="qa-a"><code>testError</code> is not a standalone Playwright Test global. A test failure is represented by an error object, commonly available as <code>testInfo.error</code> after a failure or through reporter and fixture APIs. It contains information such as the error message and stack.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">42. What are global setup and teardown?</p>
+            <p class="qa-a">Global setup runs once before the test suite, and global teardown runs once after it. They are configured with <code>globalSetup</code> and <code>globalTeardown</code>, often for tasks such as preparing shared test data. Use fixtures for resources that should be isolated per test.</p>
+          </div>
+
+          <h3 class="qa-group">Debugging, network, and screenshots</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">43. How do you capture network logs?</p>
+            <p class="qa-a">Listen for request and response events:</p>
+            <pre class="qa-code"><code>page.on('request', request =&gt; console.log('&gt;&gt;', request.method(), request.url()));
+page.on('response', response =&gt; console.log('&lt;&lt;', response.status(), response.url()));</code></pre>
+            <p class="qa-a">You can also use tracing for a richer record of a test run.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">44. How do you capture screenshots?</p>
+            <p class="qa-a">Use <code>page.screenshot()</code> or <code>locator.screenshot()</code>:</p>
+            <pre class="qa-code"><code>await page.screenshot({ path: 'screenshots/home.png', fullPage: true });</code></pre>
+            <p class="qa-a">You can attach screenshots to a test report with <code>testInfo.attach()</code>.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">45. Does Playwright support API testing? How?</p>
+            <p class="qa-a">Yes. Use the <code>request</code> fixture to send API requests and assert on the response:</p>
+            <pre class="qa-code"><code>import { test, expect } from '@playwright/test';
+
+test('gets a user', async ({ request }) =&gt; {
+  const response = await request.get('https://api.example.com/users/1');
+  expect(response.ok()).toBeTruthy();
+
+  const user = await response.json();
+  expect(user.id).toBe(1);
+});</code></pre>
+          </div>
+
+          <h3 class="qa-group">Visual tests, execution, and debugging</h3>
+
+          <div class="qa-item">
+            <p class="qa-q">46. What is visual testing? Why is it useful?</p>
+            <p class="qa-a">Visual testing compares screenshots or visual snapshots to detect unintended changes to a page&rsquo;s appearance. It can catch layout, styling, and rendering regressions that functional assertions may miss. Baselines can vary by browser, operating system, fonts, and rendering environment.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">47. Write simple visual test code.</p>
+            <pre class="qa-code"><code>import { test, expect } from '@playwright/test';
+
+test('home page looks correct', async ({ page }) =&gt; {
+  await page.goto('https://example.com');
+  await expect(page).toHaveScreenshot('home.png');
+});</code></pre>
+            <p class="qa-a">The first run may create a baseline; review it and use the project&rsquo;s snapshot update workflow when intended changes occur.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">48. How do you configure multiple reporters?</p>
+            <p class="qa-a">Provide reporter entries in an array:</p>
+            <pre class="qa-code"><code>reporter: [
+  ['list'],
+  ['html', { open: 'never' }],
+  ['junit', { outputFile: 'results.xml' }],
+],</code></pre>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">49. What is serial mode?</p>
+            <p class="qa-a">Serial mode runs tests in a group in order, typically in the same worker. If one test fails, later tests may be skipped and retries can rerun the group. It creates dependencies between tests, so independent tests are generally easier to maintain.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">50. How do you perform parallel execution?</p>
+            <p class="qa-a">Playwright runs test files in parallel by default using worker processes. You can set workers in the config or on the command line:</p>
+            <pre class="qa-code"><code>npx playwright test --workers=4</code></pre>
+            <p class="qa-a">Tests within a file can be made fully parallel with <code>fullyParallel: true</code> where appropriate.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">51. How do you perform mobile device emulation?</p>
+            <p class="qa-a">Use a device descriptor in a Playwright project:</p>
+            <pre class="qa-code"><code>import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  projects: [
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 7'] },
+    },
+  ],
+});</code></pre>
+            <p class="qa-a">This configures settings such as viewport, user agent, and touch behavior. It emulates a device; it does not run tests on a physical phone.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">52. Mention helpful ways to debug tests.</p>
+            <ul class="qa-a">
+              <li>Run with <code>--ui</code> or <code>--headed</code>.</li>
+              <li>Use <code>await page.pause()</code> to open the Inspector during a run.</li>
+              <li>Run with <code>--debug</code>.</li>
+              <li>Capture a trace and inspect it with <code>npx playwright show-trace</code>.</li>
+              <li>Use screenshots, videos, and console or network event logs.</li>
+              <li>Check locator uniqueness and actionability when a test times out.</li>
+            </ul>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">53. What is actionability in Playwright? Explain.</p>
+            <p class="qa-a">Before performing an action, Playwright checks that the target is in a suitable state. For a click, it checks that the locator resolves to one element and that the element is visible, stable, enabled, and able to receive events. Playwright waits for the relevant checks automatically; if they do not pass before the timeout, the action fails. This helps avoid timing-related failures.</p>
+          </div>
+
+          <div class="qa-item">
+            <p class="qa-q">54. What are some advantages of Playwright compared to Cypress?</p>
+            <p class="qa-a">Playwright supports Chromium, Firefox, and WebKit through one framework, and its browser contexts make isolated sessions and multiple pages straightforward. It also provides language bindings beyond JavaScript/TypeScript and supports API testing in Playwright Test. The best fit depends on the team&rsquo;s existing tools, browser requirements, and preferred workflow.</p>
+          </div>
         </div>
 
         <div class="subtab-pane" data-subpane="selenium">

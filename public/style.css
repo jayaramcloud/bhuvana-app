@@ -133,6 +133,55 @@ h1 { color: #f6821f; margin-top: 0; }
 .subtab-pane ul { margin: 0; padding-left: 1.25rem; }
 .subtab-pane li { margin-bottom: 0.4rem; }
 
+/* ---- Q&A items (Playwright answers) ---- */
+.qa-group {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.qa-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f2f4;
+}
+.qa-item:last-child { border-bottom: 0; }
+.qa-q {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.35rem;
+}
+.qa-a { margin: 0 0 0.5rem; }
+ul.qa-a { padding-left: 1.25rem; }
+ul.qa-a li { margin-bottom: 0.3rem; }
+.qa-a code,
+.qa-q code {
+  background: #f3f4f6;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.qa-code {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.qa-code code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  white-space: pre;
+}
+
 .cta {
   font-size: 1rem;
   padding: 0.5rem 1rem;
