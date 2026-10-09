@@ -15,11 +15,3 @@ navButtons.forEach((b) => b.addEventListener("click", () => showSection(b.datase
 // Open the section named in the URL (e.g. /#contact), otherwise Home.
 const startId = location.hash.slice(1);
 showSection(document.getElementById(startId) ? startId : "home");
-
-// ---- Home page demo button ----
-const greet = document.getElementById("greet");
-const message = document.getElementById("message");
-
-greet.addEventListener("click", () => {
-  message.textContent = "Hello! The time is " + new Date().toLocaleTimeString();
-});
