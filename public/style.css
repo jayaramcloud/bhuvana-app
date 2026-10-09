@@ -66,7 +66,7 @@ body {
 }
 .panel.active { display: block; }
 
-h1 { color: #0f766e; margin-top: 0; }
+h1 { color: #1e3a8a; margin-top: 0; }
 
 /* ---- Home header: title left, logo pinned top-right ---- */
 .home-header {
