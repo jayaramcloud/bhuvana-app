@@ -777,14 +777,233 @@ public class ScreenshotExample {
         </div>
 
         <div class="subtab-pane" data-subpane="sql">
-          <h2>SQL</h2>
-          <ul>
-            <li>What is the difference between INNER, LEFT, RIGHT, and FULL JOIN?</li>
-            <li>How do WHERE and HAVING differ?</li>
-            <li>Explain GROUP BY and aggregate functions with an example.</li>
-            <li>What is a subquery versus a correlated subquery?</li>
-            <li>How would you find duplicate rows in a table?</li>
-          </ul>
+          <h2>SQL Interview Questions and Answers</h2>
+          <h3 class="qa-group">SQL Fundamentals</h3>
+          <div class="qa-item">
+            <p class="qa-q">1. What is SQL?</p>
+            <p class="qa-a">SQL (Structured Query Language) is used to define, query, and manage data in relational databases.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">2. What is a database?</p>
+            <p class="qa-a">A database is an organized collection of data that can be stored, accessed, and managed electronically.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">3. What is a table?</p>
+            <p class="qa-a">A table stores data in rows and columns. Each row represents a record, and each column represents an attribute.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">4. What is a primary key?</p>
+            <p class="qa-a">A primary key uniquely identifies each row in a table. It must contain unique, non-null values.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">5. What is a foreign key?</p>
+            <p class="qa-a">A foreign key is a column or group of columns that references a key in another table. It helps maintain relationships between tables.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">6. What is the difference between <code>PRIMARY KEY</code> and <code>UNIQUE</code>?</p>
+            <p class="qa-a">Both enforce uniqueness. A primary key identifies rows and cannot be null. A table has one primary key, though it can contain multiple columns. A table can have multiple unique constraints; how they treat <code>NULL</code> values depends on the database.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">7. What are <code>NULL</code> values?</p>
+            <p class="qa-a"><code>NULL</code> represents missing or unknown data. It is not the same as zero or an empty string. Use <code>IS NULL</code> or <code>IS NOT NULL</code> to check it.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">8. What is a constraint?</p>
+            <p class="qa-a">A constraint enforces rules on data in a table. Common constraints include <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code>, <code>UNIQUE</code>, <code>NOT NULL</code>, and <code>CHECK</code>.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">9. What is the difference between <code>DELETE</code>, <code>TRUNCATE</code>, and <code>DROP</code>?</p>
+            <ul class="qa-a"><li><code>DELETE</code> removes selected rows and can use a <code>WHERE</code> clause.</li><li><code>TRUNCATE</code> removes all rows from a table, with behavior varying by database.</li><li><code>DROP</code> removes the table itself, including its structure.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">10. What is the difference between <code>CHAR</code> and <code>VARCHAR</code>?</p>
+            <p class="qa-a"><code>CHAR(n)</code> stores fixed-length character data, while <code>VARCHAR(n)</code> stores variable-length data up to the specified limit. Exact storage behavior varies by database.</p>
+          </div>
+          <h3 class="qa-group">Querying Data</h3>
+          <div class="qa-item">
+            <p class="qa-q">11. What do <code>SELECT</code> and <code>FROM</code> do?</p>
+            <p class="qa-a"><code>SELECT</code> specifies which columns or expressions to return. <code>FROM</code> specifies the table or source.</p><pre class="qa-code" data-lang="sql"><code>SELECT name, department
+FROM employees;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">12. How does the <code>WHERE</code> clause work?</p>
+            <p class="qa-a"><code>WHERE</code> filters rows before they are returned.</p><pre class="qa-code" data-lang="sql"><code>SELECT *
+FROM employees
+WHERE department = &#x27;QA&#x27;;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">13. What is the difference between <code>WHERE</code> and <code>HAVING</code>?</p>
+            <p class="qa-a"><code>WHERE</code> filters rows before grouping. <code>HAVING</code> filters groups after <code>GROUP BY</code>.</p><pre class="qa-code" data-lang="sql"><code>SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) &gt; 5;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">14. What does <code>ORDER BY</code> do?</p>
+            <p class="qa-a">It sorts the result set. Use <code>ASC</code> for ascending order and <code>DESC</code> for descending order.</p><pre class="qa-code" data-lang="sql"><code>SELECT name, salary
+FROM employees
+ORDER BY salary DESC;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">15. What does <code>DISTINCT</code> do?</p>
+            <p class="qa-a"><code>DISTINCT</code> removes duplicate rows from the selected columns.</p><pre class="qa-code" data-lang="sql"><code>SELECT DISTINCT department
+FROM employees;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">16. What are aggregate functions?</p>
+            <p class="qa-a">Aggregate functions calculate a value from multiple rows. Common examples are <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, and <code>MAX()</code>.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">17. What does <code>GROUP BY</code> do?</p>
+            <p class="qa-a"><code>GROUP BY</code> groups rows with matching values so aggregate functions can be calculated for each group.</p><pre class="qa-code" data-lang="sql"><code>SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">18. How do you search for a pattern in SQL?</p>
+            <p class="qa-a">Use <code>LIKE</code> with wildcards. <code>%</code> matches zero or more characters; <code>_</code> matches one character. Case sensitivity depends on the database and collation.</p><pre class="qa-code" data-lang="sql"><code>SELECT *
+FROM employees
+WHERE name LIKE &#x27;Sam%&#x27;;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">19. What does <code>BETWEEN</code> do?</p>
+            <p class="qa-a"><code>BETWEEN</code> checks whether a value falls within an inclusive range.</p><pre class="qa-code" data-lang="sql"><code>SELECT *
+FROM employees
+WHERE salary BETWEEN 50000 AND 80000;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">20. How do you handle <code>NULL</code> in a query?</p>
+            <p class="qa-a">Use <code>IS NULL</code> or <code>IS NOT NULL</code>. To provide a substitute value, use <code>COALESCE()</code>.</p><pre class="qa-code" data-lang="sql"><code>SELECT name, COALESCE(phone, &#x27;Not provided&#x27;) AS phone
+FROM employees
+WHERE manager_id IS NULL;</code></pre>
+          </div>
+          <h3 class="qa-group">Joins and Subqueries</h3>
+          <div class="qa-item">
+            <p class="qa-q">21. What is a join?</p>
+            <p class="qa-a">A join combines rows from two or more tables using a related column.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">22. What is the difference between <code>INNER JOIN</code> and <code>LEFT JOIN</code>?</p>
+            <p class="qa-a"><code>INNER JOIN</code> returns rows that match in both tables. <code>LEFT JOIN</code> returns every row from the left table plus matching rows from the right; unmatched right-side values are <code>NULL</code>.</p><pre class="qa-code" data-lang="sql"><code>SELECT e.name, d.department_name
+FROM employees e
+LEFT JOIN departments d
+  ON e.department_id = d.department_id;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">23. What are <code>RIGHT JOIN</code> and <code>FULL OUTER JOIN</code>?</p>
+            <p class="qa-a"><code>RIGHT JOIN</code> returns all rows from the right table and matching rows from the left. <code>FULL OUTER JOIN</code> returns matched rows plus unmatched rows from both tables. Database support varies.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">24. What is a self-join?</p>
+            <p class="qa-a">A self-join joins a table to itself, often to relate employees to their managers.</p><pre class="qa-code" data-lang="sql"><code>SELECT e.name AS employee, m.name AS manager
+FROM employees e
+LEFT JOIN employees m
+  ON e.manager_id = m.employee_id;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">25. What is a subquery?</p>
+            <p class="qa-a">A subquery is a query nested inside another query. It can be used in clauses such as <code>SELECT</code>, <code>FROM</code>, or <code>WHERE</code>.</p><pre class="qa-code" data-lang="sql"><code>SELECT name
+FROM employees
+WHERE salary &gt; (
+  SELECT AVG(salary)
+  FROM employees
+);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">26. What is a correlated subquery?</p>
+            <p class="qa-a">A correlated subquery refers to columns from the outer query. It is evaluated in relation to each outer row.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">27. What is the difference between <code>IN</code> and <code>EXISTS</code>?</p>
+            <p class="qa-a"><code>IN</code> checks whether a value matches a value in a list or query result. <code>EXISTS</code> checks whether a subquery returns any rows. The best choice can depend on the query, database, and data.</p>
+          </div>
+          <h3 class="qa-group">Data Changes and Database Design</h3>
+          <div class="qa-item">
+            <p class="qa-q">28. What are <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> used for?</p>
+            <ul class="qa-a"><li><code>INSERT</code> adds rows.</li><li><code>UPDATE</code> changes existing rows.</li><li><code>DELETE</code> removes rows.</li></ul><pre class="qa-code" data-lang="sql"><code>INSERT INTO employees (employee_id, name)
+VALUES (101, &#x27;Jordan&#x27;);
+
+UPDATE employees
+SET name = &#x27;Jordan Lee&#x27;
+WHERE employee_id = 101;
+
+DELETE FROM employees
+WHERE employee_id = 101;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">29. What is normalization?</p>
+            <p class="qa-a">Normalization organizes data to reduce unnecessary duplication and improve consistency. Common forms include 1NF, 2NF, and 3NF.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">30. What is denormalization?</p>
+            <p class="qa-a">Denormalization intentionally duplicates or combines data to improve certain read workloads. It may make updates more complex and can introduce consistency risks.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">31. What is an index?</p>
+            <p class="qa-a">An index is a data structure that can help a database find rows faster. Indexes can improve reads but use storage and may slow inserts, updates, and deletes.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">32. What is a view?</p>
+            <p class="qa-a">A view is a saved query presented like a virtual table. It can simplify queries and control which data users see. A standard view does not necessarily store its results.</p>
+          </div>
+          <h3 class="qa-group">Transactions and Performance</h3>
+          <div class="qa-item">
+            <p class="qa-q">33. What is a transaction?</p>
+            <p class="qa-a">A transaction is a group of database operations treated as one unit. A transaction can be committed to save changes or rolled back to undo them.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">34. What are the ACID properties?</p>
+            <ul class="qa-a"><li><strong>Atomicity:</strong> all operations in a transaction succeed or none do.</li><li><strong>Consistency:</strong> the transaction preserves database rules.</li><li><strong>Isolation:</strong> concurrent transactions are controlled to avoid interference.</li><li><strong>Durability:</strong> committed changes persist.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">35. What is the difference between <code>COMMIT</code> and <code>ROLLBACK</code>?</p>
+            <p class="qa-a"><code>COMMIT</code> saves a transaction&rsquo;s changes. <code>ROLLBACK</code> undoes uncommitted changes.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">36. What is a Common Table Expression (CTE)?</p>
+            <p class="qa-a">A CTE is a named query defined with <code>WITH</code>. It can make complex SQL easier to read and can be recursive in databases that support recursive CTEs.</p><pre class="qa-code" data-lang="sql"><code>WITH qa_employees AS (
+  SELECT employee_id, name
+  FROM employees
+  WHERE department = &#x27;QA&#x27;
+)
+SELECT *
+FROM qa_employees;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">37. What is a window function?</p>
+            <p class="qa-a">A window function calculates a value across related rows without collapsing them into one row per group. Examples include <code>ROW_NUMBER()</code>, <code>RANK()</code>, and <code>SUM() OVER (...)</code>.</p><pre class="qa-code" data-lang="sql"><code>SELECT name, department, salary,
+       RANK() OVER (
+         PARTITION BY department
+         ORDER BY salary DESC
+       ) AS salary_rank
+FROM employees;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">38. What is the difference between <code>UNION</code> and <code>UNION ALL</code>?</p>
+            <p class="qa-a">Both combine results from compatible queries. <code>UNION</code> removes duplicate rows; <code>UNION ALL</code> retains them and is often faster.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">39. How would you find duplicate values in a column?</p>
+            <pre class="qa-code" data-lang="sql"><code>SELECT email, COUNT(*) AS occurrences
+FROM customers
+GROUP BY email
+HAVING COUNT(*) &gt; 1;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">40. How would you find the second-highest salary?</p>
+            <pre class="qa-code" data-lang="sql"><code>SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary &lt; (SELECT MAX(salary) FROM employees);</code></pre><p class="qa-a">This returns the second distinct salary. A window function such as <code>DENSE_RANK()</code> is useful when you need to return the employees who earn it.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">41. How can you improve a slow SQL query?</p>
+            <p class="qa-a">Review the query plan, check that filters and joins use suitable indexes, return only needed columns, avoid unnecessary work, and confirm that the query matches the database&rsquo;s schema and data distribution. Measure changes with representative data.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">42. What is SQL injection, and how can you prevent it?</p>
+            <p class="qa-a">SQL injection happens when untrusted input is treated as part of a SQL command. Use parameterized queries or prepared statements instead of building SQL by concatenating input.</p>
+          </div>
+          <p class="qa-note qa-footnote">SQL features and syntax can vary between database systems such as PostgreSQL, MySQL, SQL Server, and Oracle.</p>
         </div>
 
         <div class="subtab-pane" data-subpane="postman">
