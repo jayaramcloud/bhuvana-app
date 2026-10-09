@@ -79,6 +79,60 @@ h1 { color: #f6821f; margin-top: 0; }
 /* ---- Home intro paragraph ---- */
 .home-intro { font-size: 20px; }
 
+/* ---- Tabs: Interview Qstns ---- */
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+.tab-btn {
+  font-size: 1rem;
+  padding: 0.5rem 1.1rem;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: #4b5563;
+  cursor: pointer;
+}
+.tab-btn:hover { background: #eef2ff; }
+.tab-btn.active { background: #3b82f6; color: #fff; font-weight: 600; }
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ---- Subtabs: tools under Technical ---- */
+.subtab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+}
+.subtab-btn {
+  font-size: 0.95rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+}
+.subtab-btn:hover { background: #f3f4f6; }
+.subtab-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+}
+
+.subtab-pane { display: none; }
+.subtab-pane.active { display: block; }
+.subtab-pane h2 { color: #1f2937; font-size: 1.25rem; margin: 0 0 0.5rem; }
+.subtab-pane ul { margin: 0; padding-left: 1.25rem; }
+.subtab-pane li { margin-bottom: 0.4rem; }
+
 .cta {
   font-size: 1rem;
   padding: 0.5rem 1rem;

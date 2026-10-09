@@ -15,3 +15,25 @@ navButtons.forEach((b) => b.addEventListener("click", () => showSection(b.datase
 // Open the section named in the URL (e.g. /#contact), otherwise Home.
 const startId = location.hash.slice(1);
 showSection(document.getElementById(startId) ? startId : "home");
+
+// ---- Tabs (top level) ----
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabPanes = document.querySelectorAll(".tab-pane");
+
+function showTab(name) {
+  tabPanes.forEach((p) => p.classList.toggle("active", p.dataset.pane === name));
+  tabButtons.forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
+}
+
+tabButtons.forEach((b) => b.addEventListener("click", () => showTab(b.dataset.tab)));
+
+// ---- Subtabs (inside Technical) ----
+const subtabButtons = document.querySelectorAll(".subtab-btn");
+const subtabPanes = document.querySelectorAll(".subtab-pane");
+
+function showSubtab(name) {
+  subtabPanes.forEach((p) => p.classList.toggle("active", p.dataset.subpane === name));
+  subtabButtons.forEach((b) => b.classList.toggle("active", b.dataset.subtab === name));
+}
+
+subtabButtons.forEach((b) => b.addEventListener("click", () => showSubtab(b.dataset.subtab)));

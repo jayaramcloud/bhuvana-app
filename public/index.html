@@ -39,12 +39,91 @@
     <section id="interview" class="panel">
       <h1>Interview Qstns</h1>
       <p>Practice the questions that come up most often, and sharpen your answers.</p>
-      <ul>
-        <li>Tell me about yourself and your testing experience.</li>
-        <li>What is the difference between verification and validation?</li>
-        <li>How do you decide what to test when time is limited?</li>
-        <li>Walk me through how you report and track a defect.</li>
-      </ul>
+
+      <!-- Top-level tabs -->
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" data-tab="technical">Technical</button>
+      </div>
+
+      <div class="tab-pane active" data-pane="technical">
+        <p>Choose a tool to see the questions asked most often.</p>
+
+        <!-- Subtabs under Technical -->
+        <div class="subtab-bar" role="tablist">
+          <button class="subtab-btn active" data-subtab="playwright">Playwright</button>
+          <button class="subtab-btn" data-subtab="selenium">Selenium</button>
+          <button class="subtab-btn" data-subtab="sql">SQL</button>
+          <button class="subtab-btn" data-subtab="postman">Postman</button>
+          <button class="subtab-btn" data-subtab="cypress">Cypress</button>
+          <button class="subtab-btn" data-subtab="appium">Appium</button>
+        </div>
+
+        <div class="subtab-pane active" data-subpane="playwright">
+          <h2>Playwright</h2>
+          <ul>
+            <li>What is Playwright and how does it differ from Selenium?</li>
+            <li>How do you handle waits and auto-waiting in Playwright?</li>
+            <li>Explain fixtures and the Page Object Model in Playwright.</li>
+            <li>How do you run tests in parallel and across multiple browsers?</li>
+            <li>How do you handle authentication state reuse (storageState)?</li>
+          </ul>
+        </div>
+
+        <div class="subtab-pane" data-subpane="selenium">
+          <h2>Selenium</h2>
+          <ul>
+            <li>What are the different types of waits in Selenium?</li>
+            <li>How do you handle dynamic elements and StaleElementReferenceException?</li>
+            <li>Explain the Page Object Model and its benefits.</li>
+            <li>How do you handle multiple windows, frames, and alerts?</li>
+            <li>What is the difference between driver.close() and driver.quit()?</li>
+          </ul>
+        </div>
+
+        <div class="subtab-pane" data-subpane="sql">
+          <h2>SQL</h2>
+          <ul>
+            <li>What is the difference between INNER, LEFT, RIGHT, and FULL JOIN?</li>
+            <li>How do WHERE and HAVING differ?</li>
+            <li>Explain GROUP BY and aggregate functions with an example.</li>
+            <li>What is a subquery versus a correlated subquery?</li>
+            <li>How would you find duplicate rows in a table?</li>
+          </ul>
+        </div>
+
+        <div class="subtab-pane" data-subpane="postman">
+          <h2>Postman</h2>
+          <ul>
+            <li>How do you organise requests into collections and folders?</li>
+            <li>How do you use environments and variables across requests?</li>
+            <li>How do you write tests and assertions in the Tests tab?</li>
+            <li>How do you chain requests and pass data between them?</li>
+            <li>How do you automate a collection run with Newman?</li>
+          </ul>
+        </div>
+
+        <div class="subtab-pane" data-subpane="cypress">
+          <h2>Cypress</h2>
+          <ul>
+            <li>How does Cypress differ from Selenium in architecture?</li>
+            <li>How do you handle asynchronous commands and the Cypress chain?</li>
+            <li>What are custom commands and when would you use them?</li>
+            <li>How do you stub network requests with cy.intercept()?</li>
+            <li>How do you handle file uploads and downloads in Cypress?</li>
+          </ul>
+        </div>
+
+        <div class="subtab-pane" data-subpane="appium">
+          <h2>Appium</h2>
+          <ul>
+            <li>What is Appium and how does it support cross-platform mobile testing?</li>
+            <li>How do you locate elements in a native mobile app?</li>
+            <li>How do you handle gestures like swipe, scroll, and long press?</li>
+            <li>How do you test hybrid apps and switch to web views?</li>
+            <li>How do you run tests on real devices versus emulators?</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="panel">
