@@ -1,0 +1,26 @@
+{
+  "name": "bhuvana-live",
+  "version": "1.0.0",
+  "description": "Your classroom website. Live at **https://bhuvana.preparingforinterviews.com**",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayaramcloud/bhuvana-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jayaramcloud/bhuvana-app/issues"
+  },
+  "homepage": "https://github.com/jayaramcloud/bhuvana-app#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0"
+  }
+}
