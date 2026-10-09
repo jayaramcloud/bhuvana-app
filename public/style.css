@@ -57,7 +57,7 @@ body {
 
 h1 { color: #f6821f; margin-top: 0; }
 
-/* ---- Home header: title left, logo top-right ---- */
+/* ---- Home header: title left, logo pinned top-right ---- */
 .home-header {
   display: flex;
   align-items: flex-start;
@@ -65,11 +65,15 @@ h1 { color: #f6821f; margin-top: 0; }
   gap: 1rem;
 }
 .home-logo {
-  width: 150px;
-  height: 150px;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 240px;
+  height: auto;
+  max-height: 240px;
   object-fit: contain;
   border-radius: 8px;
-  flex-shrink: 0;
+  z-index: 10;
 }
 
 .cta {
@@ -98,4 +102,6 @@ a { color: #d96d10; }
   .brand { margin: 0 1rem 0 0; }
   .nav-btn { padding: 0.5rem 0.75rem; }
   .content { margin-left: 0; padding: 1.5rem 1rem; }
+  /* Logo would overlap the top nav bar on small screens */
+  .home-logo { position: static; width: 120px; max-height: 120px; margin-left: auto; }
 }
