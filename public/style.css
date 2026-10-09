@@ -18,7 +18,7 @@ body {
   bottom: 0;
   width: 220px;
   padding: 1.5rem 1rem;
-  background: #ccf3ee;
+  background: #dbeafe;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -40,13 +40,13 @@ body {
   border: 0;
   border-radius: 8px;
   background: transparent;
-  color: #115e59;
+  color: #1e3a8a;
   cursor: pointer;
 }
 
-.nav-btn:hover { background: #a7e8df; }
-.nav-btn:focus-visible { outline: 2px solid #14b8a6; outline-offset: 2px; }
-.nav-btn.active { background: #14b8a6; color: #fff; font-weight: 600; }
+.nav-btn:hover { background: #bfdbfe; }
+.nav-btn:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+.nav-btn.active { background: #3b82f6; color: #fff; font-weight: 600; }
 
 /* ---- Page content ---- */
 .content {
