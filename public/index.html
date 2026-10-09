@@ -1007,14 +1007,254 @@ WHERE salary &lt; (SELECT MAX(salary) FROM employees);</code></pre><p class="qa-
         </div>
 
         <div class="subtab-pane" data-subpane="postman">
-          <h2>Postman</h2>
-          <ul>
-            <li>How do you organise requests into collections and folders?</li>
-            <li>How do you use environments and variables across requests?</li>
-            <li>How do you write tests and assertions in the Tests tab?</li>
-            <li>How do you chain requests and pass data between them?</li>
-            <li>How do you automate a collection run with Newman?</li>
-          </ul>
+          <h2>Postman Interview Questions and Answers</h2>
+          <h3 class="qa-group">Postman Basics</h3>
+          <div class="qa-item">
+            <p class="qa-q">1. What is Postman?</p>
+            <p class="qa-a">Postman is a platform for building, sending, testing, and documenting API requests. It is commonly used to explore REST APIs and automate API checks.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">2. What is an API?</p>
+            <p class="qa-a">An API (Application Programming Interface) lets software systems communicate through defined requests and responses.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">3. What is an HTTP request?</p>
+            <p class="qa-a">An HTTP request is a message sent by a client to a server. It typically includes a method, URL, headers, and sometimes a body.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">4. What are common HTTP methods?</p>
+            <ul class="qa-a"><li><code>GET</code> retrieves data.</li><li><code>POST</code> creates or submits data.</li><li><code>PUT</code> replaces a resource.</li><li><code>PATCH</code> updates part of a resource.</li><li><code>DELETE</code> removes a resource.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">5. What is an HTTP status code?</p>
+            <p class="qa-a">A status code tells the client the result of a request. For example, <code>200</code> means success, <code>201</code> means created, <code>400</code> indicates a client error, and <code>500</code> indicates a server error.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">6. What is the difference between <code>PUT</code> and <code>PATCH</code>?</p>
+            <p class="qa-a"><code>PUT</code> generally replaces a resource, while <code>PATCH</code> updates selected fields. The exact behavior depends on the API&rsquo;s design.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">7. What is a Postman collection?</p>
+            <p class="qa-a">A collection is a group of saved requests. It can also contain folders, scripts, and shared configuration.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">8. What is a Postman environment?</p>
+            <p class="qa-a">An environment is a set of variables for a particular context, such as development, QA, or production. It helps reuse the same requests with different URLs or credentials.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">9. What is a request in Postman?</p>
+            <p class="qa-a">A request contains details such as the HTTP method, URL, parameters, headers, authorization, body, and scripts.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">10. What is a response in Postman?</p>
+            <p class="qa-a">A response is what the server returns. Postman displays details including the status code, response body, headers, and response time.</p>
+          </div>
+          <h3 class="qa-group">Requests and Responses</h3>
+          <div class="qa-item">
+            <p class="qa-q">11. What are query parameters?</p>
+            <p class="qa-a">Query parameters are values added to the end of a URL after <code>?</code>. They are commonly used to filter, sort, or paginate results.</p><pre class="qa-code" data-lang="text"><code>https://api.example.com/users?role=admin&amp;page=2</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">12. What are path parameters?</p>
+            <p class="qa-a">Path parameters are part of the URL path and often identify a specific resource.</p><pre class="qa-code" data-lang="text"><code>https://api.example.com/users/42</code></pre><p class="qa-a">Here, <code>42</code> is the user ID.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">13. What are headers?</p>
+            <p class="qa-a">Headers provide metadata about a request or response. Examples include <code>Content-Type</code>, <code>Accept</code>, and <code>Authorization</code>.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">14. What is the request body?</p>
+            <p class="qa-a">The request body contains data sent to the server, commonly with <code>POST</code>, <code>PUT</code>, or <code>PATCH</code> requests. It may use JSON, form data, or another format supported by the API.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">15. How do you send JSON in Postman?</p>
+            <p class="qa-a">Choose <strong>Body &rarr; raw &rarr; JSON</strong>, enter the JSON, and ensure the request uses the appropriate <code>Content-Type: application/json</code> header.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">16. What is the difference between form-data and x-www-form-urlencoded?</p>
+            <p class="qa-a">Both send key-value form data. <code>form-data</code> uses multipart encoding and supports file uploads. <code>x-www-form-urlencoded</code> encodes fields into a URL-like format and is generally used for text fields.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">17. What is the difference between response time and timeout?</p>
+            <p class="qa-a">Response time is how long a request took. A timeout is the maximum time Postman or a client waits before stopping the request.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">18. What is a REST API?</p>
+            <p class="qa-a">A REST API follows REST architectural principles, typically exposing resources through URLs and using HTTP methods to read or change them.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">19. What is the difference between REST and SOAP?</p>
+            <p class="qa-a">REST is an architectural style often used with JSON over HTTP. SOAP is a protocol with a formal message structure, usually XML. Both can support web services, but they differ in format and conventions.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">20. What is GraphQL? Can Postman test it?</p>
+            <p class="qa-a">GraphQL is a query language and runtime for APIs that lets clients request specific fields. Postman can send GraphQL queries and mutations in a request body.</p>
+          </div>
+          <h3 class="qa-group">Authorization and Variables</h3>
+          <div class="qa-item">
+            <p class="qa-q">21. What authentication methods can you configure in Postman?</p>
+            <p class="qa-a">Postman supports common methods such as Basic Auth, Bearer Token, API Key, OAuth 1.0, and OAuth 2.0. The API determines which method is required.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">22. What is a Bearer token?</p>
+            <p class="qa-a">A bearer token is a credential sent with a request, commonly in the <code>Authorization</code> header:</p><pre class="qa-code" data-lang="text"><code>Authorization: Bearer &lt;token&gt;</code></pre><p class="qa-a">Anyone holding a valid bearer token may be able to use it, so it should be protected.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">23. What are variables in Postman?</p>
+            <p class="qa-a">Variables store reusable values, such as a base URL, user ID, or token. They can be referenced in requests and scripts with double curly braces:</p><pre class="qa-code" data-lang="text"><code>{{baseUrl}}/users</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">24. What are the main variable scopes?</p>
+            <p class="qa-a">Postman provides scopes such as global, collection, environment, data, and local. When the same variable name exists in multiple scopes, the more specific available scope takes precedence.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">25. What is the difference between an environment variable and a collection variable?</p>
+            <p class="qa-a">An environment variable applies to a selected environment, such as QA or production. A collection variable is associated with a collection and can be used by its requests.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">26. How do you set a variable from a response?</p>
+            <pre class="qa-code" data-lang="javascript"><code>const body = pm.response.json();
+pm.environment.set(&#x27;userId&#x27;, body.id);</code></pre><p class="qa-a">The variable can then be used in later requests as <code>{{userId}}</code>.</p>
+          </div>
+          <h3 class="qa-group">Tests and Scripts</h3>
+          <div class="qa-item">
+            <p class="qa-q">27. What are Postman scripts?</p>
+            <p class="qa-a">Scripts are JavaScript code that runs before a request or after a response. Pre-request scripts prepare data or authentication; post-response scripts can validate results or save values.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">28. What is a pre-request script?</p>
+            <p class="qa-a">A pre-request script runs before the request is sent. It can set variables, generate timestamps, or prepare request data.</p><pre class="qa-code" data-lang="javascript"><code>pm.variables.set(&#x27;requestTime&#x27;, new Date().toISOString());</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">29. What is a post-response script?</p>
+            <p class="qa-a">A post-response script runs after a response arrives. It is often used for assertions, extracting response values, and setting variables.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">30. How do you test a response status code?</p>
+            <pre class="qa-code" data-lang="javascript"><code>pm.test(&#x27;Status code is 200&#x27;, () =&gt; {
+  pm.response.to.have.status(200);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">31. How do you test a value in a JSON response?</p>
+            <pre class="qa-code" data-lang="javascript"><code>pm.test(&#x27;Response contains the expected name&#x27;, () =&gt; {
+  const body = pm.response.json();
+  pm.expect(body.name).to.eql(&#x27;Avery&#x27;);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">32. How do you check that a response contains a header?</p>
+            <pre class="qa-code" data-lang="javascript"><code>pm.test(&#x27;Content-Type header is present&#x27;, () =&gt; {
+  pm.expect(pm.response.headers.has(&#x27;Content-Type&#x27;)).to.be.true;
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">33. How do you check response time?</p>
+            <pre class="qa-code" data-lang="javascript"><code>pm.test(&#x27;Response is under 1 second&#x27;, () =&gt; {
+  pm.expect(pm.response.responseTime).to.be.below(1000);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">34. What is the <code>pm</code> object?</p>
+            <p class="qa-a"><code>pm</code> is the Postman scripting API object. It provides access to the request and response, variables, tests, and other scripting features.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">35. How do you parse a JSON response in a script?</p>
+            <pre class="qa-code" data-lang="javascript"><code>const body = pm.response.json();
+console.log(body);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">36. How do you chain requests using a response value?</p>
+            <p class="qa-a">Save a value from one response to a variable, then use that variable in the next request.</p><pre class="qa-code" data-lang="javascript"><code>const body = pm.response.json();
+pm.environment.set(&#x27;createdId&#x27;, body.id);</code></pre><p class="qa-a">Then use <code>{{createdId}}</code> in the next request&rsquo;s URL or body.</p>
+          </div>
+          <h3 class="qa-group">Collections and Automation</h3>
+          <div class="qa-item">
+            <p class="qa-q">37. What is the Collection Runner?</p>
+            <p class="qa-a">The Collection Runner executes requests in a collection or folder in sequence. It can run requests with an environment and data file.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">38. What is Newman?</p>
+            <p class="qa-a">Newman is Postman&rsquo;s command-line collection runner. It can run exported collections in scripts or continuous integration workflows.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">39. How can you run a collection with Newman?</p>
+            <pre class="qa-code" data-lang="bash"><code>newman run collection.json -e environment.json</code></pre><p class="qa-a">The collection and environment files must first be exported from Postman.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">40. How do you use a data file with a collection run?</p>
+            <p class="qa-a">Provide a JSON or CSV file containing test data to the Collection Runner or Newman. Each row or data object can supply values to variables used by the requests.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">41. How do you stop a collection from running a later request?</p>
+            <p class="qa-a">In a script, use <code>pm.execution.setNextRequest(null)</code> to stop the collection run. You can also set the next request by name or ID to control the sequence.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">42. How do you skip a request during a collection run?</p>
+            <p class="qa-a">Use <code>pm.execution.skipRequest()</code> in a pre-request script when a condition means the request should not be sent.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">43. What is a mock server in Postman?</p>
+            <p class="qa-a">A mock server returns example responses based on saved examples. It helps frontend or client development continue before the real API is ready.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">44. What is API documentation in Postman?</p>
+            <p class="qa-a">Postman can generate and publish documentation from collections, including request details, parameters, examples, and authorization information.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">45. What is a monitor in Postman?</p>
+            <p class="qa-a">A monitor runs a collection on a schedule and reports results. It can help check API availability and behavior over time.</p>
+          </div>
+          <h3 class="qa-group">API Testing Concepts</h3>
+          <div class="qa-item">
+            <p class="qa-q">46. What is API testing?</p>
+            <p class="qa-a">API testing checks that an API behaves as expected, including its status codes, response data, headers, validation, error handling, and performance characteristics.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">47. What should you validate in an API response?</p>
+            <p class="qa-a">Common checks include the status code, response body and schema, required fields, headers, response time, and expected behavior for invalid or unauthorized requests.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">48. What is negative testing?</p>
+            <p class="qa-a">Negative testing checks how an API handles invalid or unexpected inputs, such as missing fields, malformed data, invalid IDs, or expired credentials.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">49. What is schema validation?</p>
+            <p class="qa-a">Schema validation checks whether a response follows an expected structure and data types. Postman scripts can validate schemas using supported JavaScript libraries or explicit assertions.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">50. What is the difference between authentication and authorization?</p>
+            <p class="qa-a">Authentication verifies who the caller is. Authorization determines what that caller is allowed to do.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">51. What is idempotency?</p>
+            <p class="qa-a">An operation is idempotent if repeating the same request has the same intended effect as making it once. <code>GET</code> and <code>PUT</code> are generally designed to be idempotent; <code>POST</code> often is not.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">52. What is pagination?</p>
+            <p class="qa-a">Pagination divides a large result set into smaller pages. APIs may use page numbers, offsets, cursors, or links to retrieve the next page.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">53. What is rate limiting?</p>
+            <p class="qa-a">Rate limiting restricts how many requests a client can make in a given period. APIs may respond with a status such as <code>429 Too Many Requests</code> when the limit is exceeded.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">54. What is a 401 response? What is a 403 response?</p>
+            <p class="qa-a"><code>401 Unauthorized</code> usually means valid authentication credentials are missing or invalid. <code>403 Forbidden</code> usually means the caller is authenticated but lacks permission. Exact API behavior may vary.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">55. How would you test a login API in Postman?</p>
+            <p class="qa-a">Send a request with valid credentials and verify the success status, expected response fields, and token or session behavior. Then test invalid credentials, missing fields, and any relevant lockout or validation rules. Avoid storing real credentials in shared collections.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">56. What are common causes of API test failures in Postman?</p>
+            <p class="qa-a">Common causes include an incorrect URL or method, missing headers, invalid authorization, malformed request data, incorrect environment variables, unavailable services, and assertions that do not match the API&rsquo;s actual contract.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">57. How do you protect secrets in Postman?</p>
+            <p class="qa-a">Avoid hard-coding credentials into shared requests or collections. Use appropriately scoped variables and secret management features available to your Postman setup, and avoid exposing tokens in logs or shared reports.</p>
+          </div>
+          <p class="qa-note qa-footnote">Postman&rsquo;s interface and scripting APIs can change over time. For version-specific details, consult the <a href="https://learning.postman.com/" target="_blank" rel="noopener">Postman Learning Center</a>.</p>
         </div>
 
         <div class="subtab-pane" data-subpane="cypress">
