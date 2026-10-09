@@ -372,14 +372,409 @@ export default defineConfig({
         </div>
 
         <div class="subtab-pane" data-subpane="selenium">
-          <h2>Selenium</h2>
-          <ul>
-            <li>What are the different types of waits in Selenium?</li>
-            <li>How do you handle dynamic elements and StaleElementReferenceException?</li>
-            <li>Explain the Page Object Model and its benefits.</li>
-            <li>How do you handle multiple windows, frames, and alerts?</li>
-            <li>What is the difference between driver.close() and driver.quit()?</li>
-          </ul>
+          <h2>Selenium Interview Questions and Answers</h2>
+          <div class="qa-item">
+            <p class="qa-q">1. What is Selenium?</p>
+            <p class="qa-a">Selenium is a widely used open-source tool for testing web applications and verifying their functionality. It is commonly used for cross-browser testing and web application automation.</p><ul class="qa-a"><li>Supports multiple browsers and operating systems.</li><li>Works with languages such as Java, Python, C#, and JavaScript.</li><li>Enables automated testing of web application functionality.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">2. What are the Selenium suite components?</p>
+            <p class="qa-a">Here are four major components of Selenium:</p><ul class="qa-a"><li><strong>Selenium IDE</strong> is a record-and-playback tool for creating and running automated tests for web applications. It allows users to record browser interactions and create test cases with minimal programming.</li><li><strong>Selenium RC</strong> was an early Selenium tool that allowed automated browser testing through a server-based architecture. It has been deprecated and replaced by Selenium WebDriver.</li><li><strong>Selenium WebDriver</strong> is the primary Selenium component used to automate web browsers. It provides APIs for interacting with browsers and supports multiple programming languages and browsers.</li><li><strong>Selenium Grid</strong> enables tests to run across multiple machines, browsers, and operating systems, including parallel execution. Modern Selenium Grid supports distributed test execution and is no longer limited to the traditional Hub-Node architecture.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">3. Mention the advantages of using Selenium as an automation tool.</p>
+            <p class="qa-a">Selenium offers several advantages that make it widely used for web application automation testing.</p><ul class="qa-a"><li>Selenium is freely available and supported by a large community.</li><li>Supports major browsers such as Chrome, Firefox, Edge, and Safari.</li><li>Works on operating systems such as Windows, Linux, and macOS.</li><li>Supports languages including Java, Python, C#, JavaScript, and Ruby.</li><li>Selenium Grid enables tests to run simultaneously across multiple browsers and environments.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">4. What is test automation or automation testing?</p>
+            <p class="qa-a">Automated Testing is the process of using software tools and scripts to automatically execute test cases, validate results, and perform repetitive testing tasks.</p><ul class="qa-a"><li>Reduces manual effort and speeds up repetitive test execution.</li><li>Improves consistency and efficiency, especially for regression testing.</li><li>Commonly uses tools such as Selenium, Playwright, and Appium.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">5. What are the advantages of automation testing?</p>
+            <p class="qa-a">Automation testing improves the efficiency and reliability of software testing by automating repetitive and time-consuming tasks.</p><ul class="qa-a"><li>Automation testing executes repetitive test cases quickly with minimal human intervention.</li><li>It increases test coverage by allowing more test cases and scenarios to be executed.</li><li>It reduces human errors by performing test steps consistently.</li><li>Reusable automated scripts make regression testing faster and easier.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">6. What is Selenese? How is it classified?</p>
+            <p class="qa-a">Selenese is the set of commands used in Selenium IDE to create and execute automated test cases. These commands define the actions performed during browser automation and the validations used to check results.</p><p class="qa-a">Selenese commands are classified into three main categories:</p><ul class="qa-a"><li><strong>Actions:</strong> Perform operations on web elements, such as clicking, typing, and selecting.</li><li><strong>Assertions:</strong> Verify whether the actual result matches the expected result.</li><li><strong>Accessors:</strong> Retrieve information from web elements, such as text, values, or attributes.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">7. What is the difference between Selenium 2.0 and Selenium 3.0?</p>
+            <p class="qa-a">Selenium 2.0 streamlined creating automated tests for web applications by combining the original Selenium project with the WebDriver project. While Selenium Remote Control (RC) became outdated after the merge, it was still supported for a while to ensure existing tests wouldn&rsquo;t break.</p><p class="qa-a">Building upon Selenium 2.0, Selenium 3.0 brought a range of improvements. It seamlessly worked with older tests while completely removing reliance on Selenium RC. This new version also squashed bugs and made everything more reliable.</p><p class="qa-a">In short, Selenium 3.0 took the strengths of Selenium 2.0, fixed its issues, and made it even better for automating web tests.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">8. What are the testing types supported by Selenium?</p>
+            <p class="qa-a">Selenium mainly supports the following testing types:</p><ul class="qa-a"><li><strong>Functional Testing:</strong> Verifies whether the application functions according to the specified requirements.</li><li><strong>Regression Testing:</strong> Ensures that new updates or code changes do not affect existing features.</li><li><strong>Cross-Browser Testing:</strong> Checks whether the application works properly across different web browsers.</li><li><strong>UI Testing:</strong> Validates the appearance and behavior of user interface elements.</li><li><strong>End-to-End Testing:</strong> Tests complete user workflows from beginning to end in the application.</li><li><strong>Smoke Testing:</strong> Verifies whether the critical functionalities of the application are working correctly.</li><li><strong>Data-Driven Testing:</strong> Executes the same test cases using multiple sets of input data.</li><li><strong>Parallel Testing:</strong> Runs tests simultaneously on multiple browsers or machines using Selenium Grid.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">9. What are the different types of annotations which are used in Selenium?</p>
+            <p class="qa-a">In Selenium automation, TestNG annotations are commonly used to control the setup, execution, and cleanup of test cases.</p><ul class="qa-a"><li><code>@BeforeSuite</code> / <code>@AfterSuite</code>: Run before and after all tests in a TestNG suite.</li><li><code>@BeforeTest</code> / <code>@AfterTest</code>: Run before and after the test methods associated with a <code>&lt;test&gt;</code> tag in the TestNG XML file.</li><li><code>@BeforeClass</code> / <code>@AfterClass</code>: Run before and after the test methods in a class.</li><li><code>@BeforeMethod</code> / <code>@AfterMethod</code>: Run before and after each test method.</li><li><code>@BeforeGroups</code> / <code>@AfterGroups</code>: Run before the first and after the last test method of a specified group.</li><li><code>@Test</code>: Marks a method as a test method to be executed by TestNG.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">10. What are the types of Web locating strategies?</p>
+            <p class="qa-a">Selenium provides different locator strategies to identify and interact with web elements on a webpage.</p><p class="qa-a"><strong>Locating By ID:</strong> The ID locator identifies an element using its unique id attribute.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.ID, &quot;element_id&quot;)</code></pre><p class="qa-a"><strong>Locating By Class Name:</strong> The Class Name locator identifies elements using their class attribute. Multiple elements can have the same class name.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.CLASS_NAME, &quot;element_class_name&quot;)</code></pre><p class="qa-a"><strong>Locating By Name:</strong> The Name locator identifies elements using their name attribute and is commonly used for form elements.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.NAME, &quot;element_name&quot;)</code></pre><p class="qa-a"><strong>Locating By Tag Name:</strong> The Tag Name locator identifies elements using HTML tag names such as input, button, or a.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.TAG_NAME, &quot;input&quot;)</code></pre><p class="qa-a"><strong>Locating By CSS Selector:</strong> The CSS Selector locator identifies elements using CSS selectors based on attributes and the HTML structure.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.CSS_SELECTOR, &quot;input.username&quot;)</code></pre><p class="qa-a"><strong>Locating By XPath:</strong> XPath identifies elements by navigating through the webpage&rsquo;s document structure.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.XPATH, &quot;//input[@id=&#x27;username&#x27;]&quot;)</code></pre><p class="qa-a"><strong>Locating By Link Text:</strong> Link Text identifies a hyperlink using its exact visible text.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.LINK_TEXT, &quot;Login&quot;)</code></pre><p class="qa-a"><strong>Locating By Partial Link Text:</strong> Partial Link Text identifies a hyperlink using part of its visible text.</p><pre class="qa-code" data-lang="python"><code>element = driver.find_element(By.PARTIAL_LINK_TEXT, &quot;Log&quot;)</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">11. What are the types of waits supported by WebDriver?</p>
+            <p class="qa-a">Selenium WebDriver provides three types of waits:</p><ul class="qa-a"><li><strong>Implicit Waits:</strong> An implicit wait instructs WebDriver to wait for a specified time while polling the DOM when attempting to locate an element that is not immediately available.</li><li><strong>Explicit Waits:</strong> An explicit wait waits for a specific condition to be satisfied before continuing with the next step. It is typically used for particular elements or conditions, such as visibility or clickability.</li><li><strong>Fluent Wait:</strong> Fluent Wait provides greater control over waiting by allowing you to define the maximum timeout, polling interval, and exceptions to ignore while waiting for a condition.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">12. Mention the types of navigation commands.</p>
+            <p class="qa-a">The Navigation Commands in Selenium WebDriver provide four methods: <code>to()</code>, <code>back()</code>, <code>forward()</code>, and <code>refresh()</code>. These methods allow WebDriver to perform browser navigation operations.</p><ul class="qa-a"><li><strong>to() Command:</strong> Loads a new webpage in the current browser window. It accepts a URL as a parameter.</li><li><strong>back() Command:</strong> Navigates one step back in the browser history. It does not accept any parameters.</li><li><strong>forward() Command:</strong> Navigates one step forward in the browser history. It does not accept any parameters.</li><li><strong>refresh() Command:</strong> Reloads the currently opened webpage in the browser. It does not accept any parameters.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">13. What is the difference between driver.close() and driver.quit() commands?</p>
+            <table class="qa-table"><thead><tr><th>Parameter</th><th>driver.close()</th><th>driver.quit()</th></tr></thead><tbody><tr><td>Execution Scope</td><td>Window/Tab-specific</td><td>Session-specific</td></tr><tr><td>Effect on WebDriver Session</td><td>Closes only the current window and does not end the WebDriver session if other windows are open</td><td>Terminates the entire WebDriver session</td></tr><tr><td>Resource Release</td><td>Closes the currently focused browser window/tab</td><td>Closes all browser windows/tabs and releases WebDriver resources</td></tr><tr><td>Effect on Active Window/Tab</td><td>Closes the active window/tab</td><td>Closes the active window/tab along with all other open windows/tabs</td></tr><tr><td>Impact on Multiple Windows/Tabs</td><td>Does not affect other open windows/tabs</td><td>Closes all open windows/tabs</td></tr></tbody></table>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">14. Differentiate between Manual Testing and Automated Testing.</p>
+            <p class="qa-a">Here is the difference between Manual Testing and Automation Testing:</p><table class="qa-table"><thead><tr><th>Parameters</th><th>Manual Testing</th><th>Automation Testing</th></tr></thead><tbody><tr><td>Definition</td><td>In manual testing, test cases are executed by human testers.</td><td>In automation testing, test cases are executed using automation tools and scripts.</td></tr><tr><td>Processing Time</td><td>Manual testing is time-consuming.</td><td>Automation testing is faster than manual testing.</td></tr><tr><td>Resource Requirement</td><td>Requires human effort and manual resources.</td><td>Requires automation tools and skilled testers.</td></tr><tr><td>Exploratory Testing</td><td>Exploratory testing is possible.</td><td>Exploratory testing is generally not suitable.</td></tr><tr><td>Framework Requirement</td><td>Does not require automation frameworks.</td><td>Uses frameworks such as Data-Driven, Keyword-Driven, and Hybrid frameworks.</td></tr></tbody></table>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">15. What is an Absolute XPath and Relative XPath?</p>
+            <p class="qa-a"><strong>1. Absolute XPath</strong></p><p class="qa-a">Absolute XPath specifies the complete path from the root element to the target element in the HTML or XML document. It always starts with a <code>/</code> symbol and follows the full hierarchy of elements.</p><pre class="qa-code" data-lang="text"><code>/html/body/div/form/input</code></pre><p class="qa-a"><strong>2. Relative XPath</strong></p><p class="qa-a">Relative XPath identifies an element directly from anywhere in the document without starting from the root element. It usually starts with <code>//</code> and is more flexible and commonly used in Selenium.</p><pre class="qa-code" data-lang="text"><code>//input[@id=&#x27;username&#x27;]</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">16. What are the limitations of Selenium testing?</p>
+            <p class="qa-a">Selenium is a powerful web automation tool, but it has certain limitations that may require additional tools or frameworks.</p><ul class="qa-a"><li>Selenium is primarily designed for automating web browsers and does not directly support desktop application testing.</li><li>Additional tools are often required for reporting, test management, and building a complete test automation framework.</li><li>Tasks such as CAPTCHA handling, some OS-level dialogs, and visual validation may require other tools or approaches.</li><li>Creating and maintaining Selenium automation scripts generally requires programming knowledge.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">17. What is the same-origin policy and how is it handled?</p>
+            <p class="qa-a">The Same-Origin Policy is a browser security mechanism that restricts scripts from accessing resources from a different origin without permission.</p><ul class="qa-a"><li>An origin is defined by the combination of the protocol, domain, and port.</li><li>Cross-origin access can be allowed through mechanisms such as CORS (Cross-Origin Resource Sharing) when permitted by the server.</li><li>In Selenium testing, browser security restrictions should generally be handled through proper application or test-environment configuration rather than bypassing security controls.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">18. What makes Selenium such a widely used testing tool? Give reasons.</p>
+            <p class="qa-a">Selenium is widely used for web application testing because it is flexible, accessible, and compatible with different technologies.</p><ul class="qa-a"><li>Selenium is open-source and supports multiple programming languages, making it accessible to testers and developers.</li><li>It supports major browsers such as Chrome, Firefox, Edge, and Safari for cross-browser testing.</li><li>It works across operating systems such as Windows, macOS, and Linux.</li><li>It integrates with testing frameworks, build tools, and CI/CD pipelines for automated testing.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">19. Why is it advised to select Selenium as a testing tool for web applications or systems?</p>
+            <p class="qa-a">Selenium is recommended for web application testing because it provides a flexible and cost-effective solution for automating browser-based tests.</p><ul class="qa-a"><li>Enables cross-browser and cross-platform testing.</li><li>Supports multiple programming languages and integrates with testing frameworks and CI/CD tools.</li><li>Allows reusable test scripts and scalable parallel execution through Selenium Grid.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">20. What is an exception test in Selenium?</p>
+            <p class="qa-a">In Selenium, an exception test is used when you expect a specific exception to occur during a test. If a test case is designed to throw a particular exception, you can use the <code>@Test</code> annotation in TestNG and specify the expected exception type in its parameters. This way, the test will pass only if that exception is thrown.</p><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>import org.testng.annotations.Test;
+
+public class ExceptionTestExample {
+
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void testDivideByZero() {
+        int result = 10 / 0; // This line will throw an ArithmeticException
+    }
+}</code></pre><p class="qa-a">In this example, the test will pass because an <code>ArithmeticException</code> is expected when dividing by zero. If no exception or a different exception is thrown, the test will fail.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">21. How to wait until a web page has been loaded completely in Selenium?</p>
+            <p class="qa-a">In Selenium, you can use two main types of waits to ensure elements load before interacting with them:</p><ul class="qa-a"><li><strong>Implicit Wait:</strong> Sets a basic wait time for all elements. Selenium will wait for this time before throwing an error if an element isn&rsquo;t found.</li><li><strong>Explicit Wait:</strong> Waits for a specific element or condition to be met, like waiting for a button to appear. This type of wait is more precise.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">22. What is Selenium WebDriver?</p>
+            <p class="qa-a">Selenium WebDriver is the primary component of Selenium used to automate and control web browsers for testing web applications.</p><ul class="qa-a"><li>Provides APIs to interact with web elements and perform browser actions.</li><li>Supports multiple programming languages, browsers, and operating systems.</li><li>Enables automated functional and regression testing of web applications.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">23. Is Selenium WebDriver a library?</p>
+            <p class="qa-a">Yes. Selenium WebDriver provides language bindings and APIs that enable developers to automate and control web browsers.</p><ul class="qa-a"><li>Supports languages such as Java, Python, C#, JavaScript, and Ruby.</li><li>Allows interaction with web elements and browser actions through WebDriver commands.</li><li>Communicates with browsers using browser-specific drivers or browser automation implementations.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">24. Which browsers/drivers are supported by Selenium WebDriver?</p>
+            <p class="qa-a">Selenium WebDriver supports major web browsers through their respective browser drivers or built-in WebDriver implementations:</p><ul class="qa-a"><li>Google Chrome</li><li>Mozilla Firefox</li><li>Microsoft Edge</li><li>Safari</li><li>Opera</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">25. Explain Selenium 4 and why it is different from other Selenium versions.</p>
+            <p class="qa-a">Selenium 4 is a major version of Selenium that introduced improvements based on the W3C WebDriver standard and added new features for modern web testing.</p><ul class="qa-a"><li><strong>W3C WebDriver standard:</strong> Improves communication between Selenium and web browsers using a standardized protocol.</li><li><strong>Enhanced Selenium Grid:</strong> Provides improved architecture and support for distributed and parallel test execution.</li><li><strong>New features:</strong> Includes relative locators, better window and tab management, and improved browser interaction capabilities.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">26. What will happen if I execute the command driver.get?</p>
+            <p class="qa-a">This command tells the Selenium WebDriver to open the given URL in the web browser.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">27. What is an alternative option to the driver.get() method to open a URL in Selenium WebDriver?</p>
+            <p class="qa-a">An alternative to <code>driver.get()</code> is the <code>driver.navigate().to()</code> method, which navigates the browser to a specified URL.</p><ul class="qa-a"><li><code>driver.get()</code> opens the specified URL in the current browser window.</li><li><code>driver.navigate().to()</code> also navigates to a specified URL.</li><li>The <code>navigate()</code> interface additionally provides methods such as <code>back()</code>, <code>forward()</code>, and <code>refresh()</code>.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">28. Is it possible to test APIs or web services using Selenium WebDriver?</p>
+            <p class="qa-a">Selenium WebDriver is primarily designed for automating web browsers and is not intended for direct API or web service testing.</p><ul class="qa-a"><li>Selenium can indirectly test APIs by validating the application&rsquo;s UI behavior and responses.</li><li>Dedicated tools such as Postman, REST Assured, and SoapUI are better suited for API testing.</li><li>API testing can be combined with Selenium UI testing as part of a complete test automation strategy.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">29. Mention different ways of locating an element in Selenium.</p>
+            <p class="qa-a">In Selenium, elements on a web page can be located using different locator strategies provided by the <code>By</code> class. The main ways of locating elements are:</p><ul class="qa-a"><li><strong>By ID:</strong> Locates element using unique id attribute</li><li><strong>By Name:</strong> Locates element using name attribute</li><li><strong>By Class Name:</strong> Locates element using class attribute</li><li><strong>By Tag Name:</strong> Locates element using HTML tag</li><li><strong>By Link Text:</strong> Locates links using full text</li><li><strong>By Partial Link Text:</strong> Locates links using partial text</li><li><strong>By CSS Selector:</strong> Locates element using CSS patterns</li><li><strong>By XPath:</strong> Locates element using XML path expression</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">30. How can we move to the nth-child element using XPath?</p>
+            <p class="qa-a">To move to the nth child element in XPath, we use indexing with square brackets <code>[n]</code>. It helps in selecting a specific element among multiple matching nodes.</p><p class="qa-a">Example: <code>(//tagname)[3]</code> selects the 3rd matching element.</p>
+          </div>
+          <h3 class="qa-group">Intermediate-Level Selenium Interview Questions</h3>
+          <div class="qa-item">
+            <p class="qa-q">31. How to type text in an input box using Selenium?</p>
+            <p class="qa-a">In Selenium WebDriver, the <code>sendKeys()</code> method is used to enter text into input fields and other editable web elements.</p><ul class="qa-a"><li>First, locate the input element using an appropriate locator.</li><li>Use the <code>sendKeys()</code> method to enter the required text.</li><li>The method can also simulate certain keyboard inputs.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">32. How to scroll down a page using JavaScript?</p>
+            <p class="qa-a">In Selenium, the <code>JavascriptExecutor</code> interface can execute JavaScript to scroll a webpage.</p><ul class="qa-a"><li><code>window.scrollBy()</code> scrolls the page by a specified number of pixels.</li><li><code>window.scrollTo()</code> scrolls to a specific position on the page.</li><li><code>scrollIntoView()</code> scrolls until a specific element becomes visible.</li></ul><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript(&quot;window.scrollBy(0, 500);&quot;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">33. How to click on a hyperlink in Selenium?</p>
+            <p class="qa-a">In Selenium, you can click a hyperlink by locating the <code>&lt;a&gt;</code> element and using the <code>click()</code> method.</p><ul class="qa-a"><li><strong>Link Text:</strong> Locates a link using its exact visible text.</li><li><strong>Partial Link Text:</strong> Locates a link using part of its visible text.</li><li><strong>Other locators:</strong> CSS Selector or XPath can also be used when appropriate.</li></ul><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>driver.findElement(By.linkText(&quot;Login&quot;)).click();</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">34. How to assert the title of a webpage?</p>
+            <p class="qa-a">Open the GeeksforGeeks website, get the title, and compare it with the expected title.</p><pre class="qa-code" data-lang="java"><code>// Step 1: Open the GeeksforGeeks website
+driver.get(&quot;https://www.geeksforgeeks.org/&quot;);
+
+// Step 2: Get the actual title
+String actualTitle = driver.getTitle();
+
+// Step 3: Expected title
+String expectedTitle = &quot;GeeksforGeeks - A Computer Science Portal for Geeks&quot;;
+
+// Step 4: Assertion
+Assert.assertEquals(actualTitle, expectedTitle);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">35. How to mouse hover over a web element?</p>
+            <pre class="qa-code" data-lang="java"><code>// Create an instance of the Actions class
+Actions action = new Actions(driver);
+
+// Hover over the web element
+action.moveToElement(driver.findElement(By.id(&quot;id_of_element&quot;))).perform();</code></pre><ul class="qa-a"><li><strong>Actions Class:</strong> Create an instance of the Actions class to handle complex mouse and keyboard actions.</li><li><strong>moveToElement():</strong> Use this method to specify the web element you want to hover over, identified by its ID.</li><li><strong>perform():</strong> Call this method to execute the hover action.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">36. How to retrieve CSS properties of an element?</p>
+            <p class="qa-a">In Selenium WebDriver, the <code>getCssValue()</code> method is used to retrieve the value of a CSS property applied to a web element.</p><ul class="qa-a"><li>Locate the required web element using a suitable locator.</li><li>Use <code>getCssValue()</code> with the name of the CSS property.</li><li>It can retrieve properties such as color, font-size, and background-color.</li></ul><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>WebElement element = driver.findElement(By.id(&quot;button&quot;));
+String color = element.getCssValue(&quot;color&quot;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">37. What is POM?</p>
+            <p class="qa-a">POM is a design pattern which is commonly used in Selenium for automating the test cases. This design pattern can be used with any kind of framework like keyword-driven, data-driven, hybrid framework, etc.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">38. Can Captcha be automated?</p>
+            <p class="qa-a">CAPTCHA is specifically designed to distinguish humans from automated programs, so Selenium should not be used to bypass or solve CAPTCHA challenges.</p><ul class="qa-a"><li>In test environments, CAPTCHA can be disabled or replaced with a test-friendly mechanism.</li><li>Test-specific tokens or bypass mechanisms can be provided by the application team for authorized testing.</li><li>Selenium can continue automating the workflow before and after the CAPTCHA step.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">39. How does Selenium handle Windows-based pop-ups?</p>
+            <p class="qa-a">Selenium WebDriver primarily automates web browsers and cannot directly control native Windows or operating system pop-up dialogs.</p><ul class="qa-a"><li><strong>Browser alerts:</strong> JavaScript alerts, confirmations, and prompts can be handled using the <code>Alert</code> interface.</li><li><strong>Native Windows pop-ups:</strong> File dialogs and other OS-level windows may require tools such as AutoIt or platform-specific automation tools.</li><li><strong>File uploads:</strong> When possible, Selenium can avoid native file dialogs by sending the file path directly to an <code>&lt;input type="file"&gt;</code> element using <code>sendKeys()</code>.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">40. How to take screenshots in WebDriver?</p>
+            <p class="qa-a">In Selenium WebDriver, screenshots can be captured using the <code>TakesScreenshot</code> interface, which captures the current browser view.</p><ul class="qa-a"><li>Cast the WebDriver instance to <code>TakesScreenshot</code>.</li><li>Use <code>getScreenshotAs()</code> to capture the screenshot.</li><li>Screenshots are commonly used for debugging and reporting test failures.</li></ul><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>TakesScreenshot screenshot = (TakesScreenshot) driver;
+File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">41. Why do testers choose Selenium over QTP?</p>
+            <p class="qa-a">Testers may choose Selenium over QTP (now known as UFT One) because Selenium is open-source, flexible, and widely used for web application automation.</p><ul class="qa-a"><li><strong>Open-source and cost-effective:</strong> Selenium is free to use, unlike commercial tools that require licensing.</li><li><strong>Broader flexibility:</strong> Supports multiple programming languages, browsers, and operating systems.</li><li><strong>Easy integration:</strong> Integrates with testing frameworks, CI/CD tools, and Selenium Grid for scalable automation.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">42. What are the data-driven framework and keyword-driven framework?</p>
+            <p class="qa-a">A data-driven framework is a type of test automation framework that keeps the test data separate from the test scripts. This means testers can create automated tests that can work with different sets of data without changing the test code itself.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">43. What is the difference between getWindowHandles() and getWindowHandle()?</p>
+            <p class="qa-a">Both methods are used to manage browser windows or tabs in Selenium WebDriver.</p><ul class="qa-a"><li><code>getWindowHandle()</code>: Returns the unique identifier of the current browser window or tab as a <code>String</code>.</li><li><code>getWindowHandles()</code>: Returns the unique identifiers of all currently open browser windows or tabs as a <code>Set&lt;String&gt;</code>.</li><li><code>getWindowHandle()</code> is used for the current window, while <code>getWindowHandles()</code> is useful when switching between multiple windows or tabs.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">44. What is a Selenium Maven project?</p>
+            <p class="qa-a">A Selenium Maven project is a test automation project that uses Maven to manage dependencies, build the project, and run Selenium tests.</p><ul class="qa-a"><li><strong>Dependency management:</strong> Maven automatically manages libraries such as Selenium and TestNG/JUnit.</li><li><strong>Standard project structure:</strong> Organizes source code, test code, and resources using a predefined structure.</li><li><strong>Build and test execution:</strong> Maven can compile the project and execute automated tests using commands such as <code>mvn test</code>.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">45. What is an Object Repository?</p>
+            <p class="qa-a">An Object Repository is a centralized collection used to store and manage information about web elements, such as their locators, in a test automation framework.</p><ul class="qa-a"><li>Stores locators such as id, name, CSS Selector, and XPath.</li><li>Separates element identification from test scripts, improving maintainability.</li><li>Can be implemented using approaches such as Page Object Model (POM), properties files, or other centralized locator-management mechanisms.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">46. How do you locate elements using XPath?</p>
+            <p class="qa-a"><strong>1. Absolute XPath:</strong> Absolute XPath uses the root element of the HTML/XML code and is followed by all the elements that are necessary to reach the desired element. It starts with the forward slash &lsquo;/&rsquo;. Generally, Absolute XPath is not recommended because if any of the web elements are added or removed in the future, the Absolute XPath changes.</p><p class="qa-a">Example:</p><pre class="qa-code" data-lang="text"><code>/html[1]/body[1]/div[6]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]</code></pre><p class="qa-a"><strong>2. Relative XPath:</strong> XPath begins with the double forward slash &lsquo;//&rsquo; which means it can search the element anywhere on the web page. Generally, Relative XPath is preferred as they are not complete paths from the root node.</p><p class="qa-a">Example:</p><pre class="qa-code" data-lang="text"><code>//input[@id = &#x27;fakebox-input&#x27;]</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">47. How can you handle multiple windows in Selenium?</p>
+            <p class="qa-a">When a new window is opened in Selenium, we must switch the WebDriver focus from the parent window to the child window. This is done using <code>getWindowHandle()</code> and <code>getWindowHandles()</code> methods. After switching, we can perform actions on the new window.</p><pre class="qa-code" data-lang="java"><code>// Get parent window ID
+String parentWindow = driver.getWindowHandle();
+
+// Get all window IDs
+Set&lt;String&gt; allWindows = driver.getWindowHandles();
+
+// Switch to child window
+for (String window : allWindows) {
+    if (!window.equals(parentWindow)) {
+        driver.switchTo().window(window);
+    }
+}
+
+// Now perform actions on child window
+System.out.println(driver.getTitle());
+
+// Switch back to parent window (optional)
+driver.switchTo().window(parentWindow);</code></pre><p class="qa-a">Here you can observe the IDs of windows are different:</p><pre class="qa-code" data-lang="text"><code>CDwindow-EA925E71098EEFBB80858BE787CED1A5  (ID of main window)
+CDwindow-C9078346729F1D0CF8AF12E938CE49DD  (ID of new window)</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">48. Explain Implicit and Explicit waits in Selenium.</p>
+            <p class="qa-a"><strong>Implicit Wait:</strong> Implicit wait is a global wait in Selenium that tells WebDriver to wait for a certain amount of time when trying to find any element. If the element is not immediately available, WebDriver keeps polling until the timeout is reached.</p><p class="qa-a"><strong>Explicit Wait:</strong> Explicit wait is used to wait for a specific condition to occur for a particular element before proceeding further. It is more flexible and applies only to selected elements.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">49. List the difference between Close and Quit commands.</p>
+            <table class="qa-table"><thead><tr><th>Parameters</th><th>driver.close()</th><th>driver.quit()</th></tr></thead><tbody><tr><td>Execution Scope</td><td>Window/Tab-specific</td><td>Session-specific</td></tr><tr><td>Effect on WebDriver Session</td><td>Doesn&rsquo;t terminate</td><td>Terminates along with windows</td></tr><tr><td>Resource Release</td><td>Closes a specific window/tab in focus</td><td>Terminates WebDriver and associated windows/tabs</td></tr><tr><td>Effect on Active Window/Tab</td><td>Closes the active window/tab</td><td>Closes the active window/tab</td></tr><tr><td>Impact on Multiple Windows/Tabs</td><td>Doesn&rsquo;t affect</td><td>Closes all windows/tabs</td></tr></tbody></table>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">50. How can we submit a form in Selenium?</p>
+            <p class="qa-a">This is how we can submit a form in Selenium:</p><p class="qa-a"><strong>1. Create a Form</strong> &mdash; we will create the form which we will be using to try submitting it from the Selenium script.</p><p class="qa-a"><strong>2. Code to Submit a Form</strong> &mdash; we will try to get the fields in which all the data will be entered. To get the field we can find it using Id, Class, or CSS Selector. In the following code block, we find the fields using ID and the submit button is tracked using the CSS Selector.</p><pre class="qa-code" data-lang="java"><code>// Import necessary libraries
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+    public static void main(String[] args) {
+        // Set the path to the ChromeDriver executable
+        System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;path/to/chromedriver.exe&quot;);
+        
+        // Initialize WebDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the desired webpage
+        driver.get(&quot;your-webpage-url&quot;); // Replace with your actual webpage URL
+
+        // Find the input fields using ID
+        WebElement firstName = driver.findElement(By.id(&quot;FirstName&quot;));
+        WebElement dob = driver.findElement(By.id(&quot;DOB&quot;));
+        WebElement email = driver.findElement(By.id(&quot;Email&quot;));
+        WebElement inputNumber = driver.findElement(By.id(&quot;inputNumber&quot;));
+        WebElement maleRadioButton = driver.findElement(By.id(&quot;Male&quot;));
+
+        // Fill out the form
+        firstName.sendKeys(&quot;Ram&quot;);
+        dob.sendKeys(&quot;19-01-2001&quot;);
+        email.sendKeys(&quot;ram@example.com&quot;);
+        inputNumber.sendKeys(&quot;1234567890&quot;);
+        maleRadioButton.click();
+
+        // Click the submit button using CSS Selector
+        driver.findElement(By.cssSelector(&quot;button[type=&#x27;submit&#x27;]&quot;)).click();
+
+        // Switch to alert and get alert text
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+
+        // Check if the alert is open
+        if (alertText != null) {
+            System.out.println(&quot;Alert is open, and the content is: &quot; + alertText);
+            // Optionally accept the alert if needed
+            // alert.accept();
+        } else {
+            System.out.println(&quot;No alert found.&quot;);
+        }
+
+        // Quit the browser
+        driver.quit();
+    }
+}</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">51. How to delete cookies in Selenium?</p>
+            <p class="qa-a">Selenium WebDriver provides built-in methods to delete browser cookies during test execution.</p><ul class="qa-a"><li><strong>Delete all cookies:</strong> Removes all cookies from the current browser session.</li><li><strong>Delete a specific cookie:</strong> Removes a cookie using its name or Cookie object.</li><li>These methods are useful for managing browser sessions and maintaining test independence.</li></ul><p class="qa-a"><strong>Method 1: Delete all cookies</strong></p><p class="qa-a"><strong>Python:</strong></p><pre class="qa-code" data-lang="python"><code>driver.delete_all_cookies()</code></pre><p class="qa-a"><strong>Java:</strong></p><pre class="qa-code" data-lang="java"><code>driver.manage().deleteAllCookies();</code></pre><p class="qa-a"><strong>JavaScript:</strong></p><pre class="qa-code" data-lang="js"><code>await driver.manage().deleteAllCookies();</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">52. How do you work with frames in Selenium?</p>
+            <p class="qa-a">Selenium WebDriver allows you to switch between the main page and frames or iframes to interact with elements inside them.</p><ul class="qa-a"><li>Use <code>switchTo().frame()</code> to switch to a frame using its index, name/id, or WebElement.</li><li>Perform the required actions inside the frame after switching.</li><li>Use <code>switchTo().defaultContent()</code> to return to the main page.</li></ul><p class="qa-a">Example:</p><pre class="qa-code" data-lang="java"><code>driver.switchTo().frame(&quot;frameName&quot;);
+
+// Perform actions inside the frame
+
+driver.switchTo().defaultContent();</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">53. Discuss the importance of Cross-Browser Testing in Selenium.</p>
+            <p class="qa-a">Cross-browser testing verifies that a web application functions correctly and provides a consistent user experience across different browsers, versions, operating systems, and devices.</p><ul class="qa-a"><li><strong>Identifies compatibility issues:</strong> Helps detect browser-specific problems in functionality, layout, and application behavior.</li><li><strong>Ensures broader compatibility:</strong> Selenium supports testing across major browsers such as Chrome, Firefox, Edge, and Safari.</li><li><strong>Improves user experience:</strong> Ensures that users receive consistent functionality regardless of their browser environment.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">54. What are the challenges of Parallel Execution in Selenium?</p>
+            <p class="qa-a">Parallel execution in Selenium helps reduce test execution time by running multiple tests simultaneously, but it introduces several challenges:</p><ul class="qa-a"><li><strong>Test data conflicts:</strong> Multiple tests using the same data can interfere with each other.</li><li><strong>Thread safety issues:</strong> WebDriver instances are not thread-safe without proper handling (e.g., ThreadLocal).</li><li><strong>Resource contention:</strong> High CPU, memory, and network usage due to multiple browser instances.</li><li><strong>Test dependency issues:</strong> Dependent tests may fail because execution order is not guaranteed.</li><li><strong>Flaky tests:</strong> Race conditions and timing issues can lead to inconsistent results.</li><li><strong>Difficult debugging:</strong> Hard to identify root cause when multiple tests run simultaneously.</li><li><strong>Environment limitations:</strong> Limited infrastructure (Grid nodes/browsers) can restrict execution.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">55. How to integrate Selenium with Jenkins for Continuous Integration?</p>
+            <p class="qa-a">Selenium can be integrated with Jenkins to automatically execute test suites whenever code changes are built or deployed as part of a Continuous Integration pipeline.</p><ul class="qa-a"><li><strong>Configure the project:</strong> Set up the Selenium test project with a build tool such as Maven or Gradle.</li><li><strong>Create a Jenkins job or pipeline:</strong> Configure Jenkins to retrieve the source code and run the automated test suite.</li><li><strong>Schedule or trigger execution:</strong> Tests can run automatically after code changes, builds, or scheduled triggers.</li><li><strong>Publish results:</strong> Configure Jenkins to display test reports and notify the team about test results.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">56. What is the purpose of the Page Factory in Selenium?</p>
+            <p class="qa-a">Page Factory is a built-in feature in Selenium used to implement the Page Object Model (POM) in a more optimized and readable way by initializing web elements using annotations like <code>@FindBy</code>.</p><ul class="qa-a"><li><strong>Initialization:</strong> It initializes web elements defined with <code>@FindBy</code> using <code>PageFactory.initElements()</code>, removing the need to repeatedly use <code>findElement()</code> in test scripts. This reduces boilerplate code.</li><li><strong>Improved Readability:</strong> It separates element definitions from test logic, making the code cleaner and easier to understand.</li><li><strong>Better Maintainability:</strong> If UI changes occur, only the page class needs to be updated, not the test scripts.</li><li><strong>Code Reusability:</strong> Page classes can be reused across multiple test cases, reducing duplication.</li><li><strong>Proxy (Lazy Behavior):</strong> Page Factory creates proxy objects for WebElements, and the actual element lookup happens only when the element is used.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">57. Describe the significance of TestNG in Selenium.</p>
+            <p class="qa-a">TestNG is a testing framework used with Selenium to provide better structure, control, and management of test execution.</p><ul class="qa-a"><li><strong>Better Test Organization:</strong> TestNG uses annotations like <code>@Test</code>, <code>@BeforeMethod</code>, and <code>@AfterMethod</code> to structure test cases and setup/teardown processes clearly.</li><li><strong>Test Grouping:</strong> It allows grouping of test cases (smoke, regression, sanity), making execution more organized and flexible.</li><li><strong>Data-Driven Testing:</strong> Using <code>@DataProvider</code>, TestNG supports running the same test with multiple data sets, improving test coverage.</li><li><strong>Parallel Execution:</strong> TestNG supports parallel test execution, reducing overall execution time.</li><li><strong>Test Dependencies:</strong> Using <code>@DependsOnMethods</code>, we can control execution order and manage dependent test cases.</li><li><strong>Reporting:</strong> It generates detailed HTML and XML reports for test execution and failure analysis.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">58. How do you handle Synchronization in Selenium WebDriver?</p>
+            <p class="qa-a">Synchronization in Selenium ensures that WebDriver interacts with web elements only when they are available and ready for the required action, especially in dynamic web applications.</p><ul class="qa-a"><li><strong>Implicit Wait:</strong> Sets a default maximum waiting time when locating elements.</li><li><strong>Explicit Wait:</strong> Waits for a specific condition, such as an element becoming visible or clickable.</li><li><strong>Fluent Wait:</strong> Provides additional control over timeout, polling intervals, and ignored exceptions.</li><li>Avoid using fixed delays such as <code>Thread.sleep()</code> when appropriate wait mechanisms can provide more reliable synchronization.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">59. What are the benefits of using Selenium Grid or the Selenium tool suite?</p>
+            <p class="qa-a">Here&rsquo;s why using Selenium Grid is a good idea:</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">60. Explain the purpose of the 'assert' statement in Selenium.</p>
+            <p class="qa-a">The assert statement in Selenium is used to validate expected results against actual results during test execution. It helps verify whether the application is behaving as expected.</p><p class="qa-a"><strong>Purpose</strong></p><ul class="qa-a"><li>It compares the actual output with the expected output.</li><li>It is used to validate test conditions like title, text, URL, UI elements, etc.</li><li>It determines whether a test case should pass or fail.</li><li>It helps in ensuring the correctness and reliability of the application.</li></ul><p class="qa-a"><strong>Working</strong></p><ul class="qa-a"><li>Selenium performs an action on the application.</li><li>The expected result is defined in the test script.</li><li>assert checks whether both values match.</li><li>If they match &rarr; test passes, if not &rarr; test fails.</li></ul><p class="qa-a">Assertions are essential in Selenium automation because they act as checkpoints to validate application behavior and control test execution results.</p>
+          </div>
+          <h3 class="qa-group">Advanced-Level Selenium Interview Questions</h3>
+          <div class="qa-item">
+            <p class="qa-q">61. What are the limitations of Selenium testing?</p>
+            <p class="qa-a">Selenium has several advantages, but it also has some limitations, which are as follows:</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">62. Differentiate between WebDriver and WebElement.</p>
+            <table class="qa-table"><thead><tr><th>Feature</th><th>WebDriver</th><th>WebElement</th></tr></thead><tbody><tr><td>Purpose</td><td>Controls the browser itself</td><td>Represents an element within a web page</td></tr><tr><td>Scope</td><td>Browser window or tab</td><td>Specific element like a button, text field, or image</td></tr><tr><td>Interactions</td><td>Opens/closes browsers, navigates to URLs, refreshes pages, manages windows</td><td>Clicks, enters text, retrieves text, submits forms, interacts with element attributes</td></tr><tr><td>Example</td><td>driver.get("https://www.example.com/")</td><td>element = driver.findElement_by_id("my_button")</td></tr><tr><td>Analogy</td><td>Like a remote control for your TV</td><td>Like a specific button or channel on your television</td></tr><tr><td>Selenium Methods</td><td>get(), navigate(), quit(), switch_to()</td><td>click(), send_keys(), text(), get_attribute(), is_displayed()</td></tr></tbody></table>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">63. How do you perform database testing using Selenium?</p>
+            <p class="qa-a">Selenium itself does not directly support database testing because it is designed for UI automation. However, database testing can be achieved by integrating Selenium with database connectivity using programming languages like Java, Python, etc.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">64. Discuss the role of the Cucumber framework in Selenium.</p>
+            <p class="qa-a">Selenium and Cucumber work together for web testing:</p><ul class="qa-a"><li><strong>Selenium:</strong> Controls the browser and performs the clicking, typing, and navigating. Its code can be hard for non-technical people to read.</li><li><strong>Cucumber:</strong> Acts as a translator that speaks plain English. It uses Gherkin, a special language that reads like a story, describing how users interact with the website. This makes tests clear for everyone, not just coding experts.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">65. What are the considerations for Headless Browser Testing in Selenium?</p>
+            <p class="qa-a">Headless browser testing runs automated tests without displaying the browser&rsquo;s graphical interface. It can improve execution speed and resource efficiency, especially in CI/CD environments.</p><ul class="qa-a"><li><strong>Browser differences:</strong> Test behavior or rendering may differ between headless and headed modes, so important tests should be validated in both when necessary.</li><li><strong>Screen size and configuration:</strong> Set a consistent window size because responsive layouts can behave differently in headless mode.</li><li><strong>Debugging:</strong> Capture screenshots, logs, and browser console output to help investigate test failures.</li><li><strong>CI/CD suitability:</strong> Headless execution is useful for automated and parallel test execution on servers without a graphical interface.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">66. Examine the challenges and solutions of handling dynamic tables.</p>
+            <p class="qa-a">Dynamic tables can change their data, rows, columns, or displayed content based on user actions and application updates, making them challenging to automate.</p><p class="qa-a"><strong>Challenges:</strong></p><ul class="qa-a"><li>Dynamic rows or columns can make element locators unreliable.</li><li>Missing unique attributes can make specific elements difficult to identify.</li><li>Pagination, sorting, and filtering can change the displayed data.</li><li>Frequent DOM updates can cause <code>StaleElementReferenceException</code>.</li><li>Extracting and validating data from specific rows and columns can be complex.</li></ul><p class="qa-a"><strong>Solutions:</strong></p><ul class="qa-a"><li>Use stable CSS selectors or relative XPath based on reliable attributes and relationships.</li><li>Use explicit waits (<code>WebDriverWait</code>) for dynamically loaded table data.</li><li>Iterate through rows and columns using loops to extract and validate data.</li><li>Handle pagination using appropriate navigation logic.</li><li>Avoid fragile index-based or absolute XPath locators when stable attributes are available.</li><li>Switch to the appropriate frame if the table is inside an iframe.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">67. How to capture screenshots in Selenium?</p>
+            <p class="qa-a"><strong>1. Using the TakesScreenshot Interface:</strong> This is the most basic and widely used approach:</p><pre class="qa-code" data-lang="java"><code>import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+
+public class ScreenshotExample {
+
+    public static void main(String[] args) throws Exception
+    {
+        // Set up your WebDriver instance
+        WebDriver driver = ...;
+
+        // Navigate to the URL
+        driver.get(&quot;https://www.example.com/&quot;);
+
+        // Screenshot of the entire page
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        byte[] screenshotBytes = screenshot.getScreenshotAs(OutputType.BYTES);
+
+        // Save the screenshot to a file
+        FileUtils.writeByteArrayToFile(new File(&quot;screenshot.png&quot;), screenshotBytes);
+
+        // Quit
+        driver.quit();
+    }
+}</code></pre><p class="qa-a"><strong>2. Using Third-Party Libraries:</strong> Libraries like Apache Commons IO and SikuliX offer additional functionalities.</p><p class="qa-a"><strong>3. Browser Developer Tools:</strong> While not ideal for automated tests, browser developer tools allow manual screenshot capture during debugging.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">68. What are the benefits of using a Data-Driven Framework in Selenium?</p>
+            <p class="qa-a">A Data-Driven Framework in Selenium allows testers to separate test data from test scripts, making automation more flexible and reusable.</p><ul class="qa-a"><li>Supports testing with multiple data sets easily.</li><li>Reduces code duplication and improves maintenance.</li><li>Increases test coverage and execution efficiency.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">69. Explain the concept of Object Repository in Selenium.</p>
+            <p class="qa-a">An Object Repository in Selenium is a centralized location where all web element locators (like XPath, ID, name) are stored for easy management and reuse.</p><ul class="qa-a"><li>Helps in maintaining and updating locators easily.</li><li>Reduces code duplication in test scripts.</li><li>Improves readability and maintainability of automation frameworks.</li></ul>
+          </div>
         </div>
 
         <div class="subtab-pane" data-subpane="sql">

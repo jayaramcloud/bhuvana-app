@@ -185,6 +185,23 @@ ul.qa-a li { margin-bottom: 0.3rem; }
 .qa-footnote { margin-top: 1.5rem; font-style: italic; }
 .qa-a a { color: #2563eb; text-decoration: underline; }
 
+/* ---- Comparison tables inside Q&A ---- */
+.qa-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
+.qa-table th,
+.qa-table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+.qa-table th { background: #f3f4f6; color: #1f2937; font-weight: 600; }
+.qa-table tr:nth-child(even) td { background: #fafafa; }
+
 .cta {
   font-size: 1rem;
   padding: 0.5rem 1rem;
