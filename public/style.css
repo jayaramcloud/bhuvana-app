@@ -181,6 +181,9 @@ ul.qa-a li { margin-bottom: 0.3rem; }
   font-size: inherit;
   white-space: pre;
 }
+.qa-note { color: #6b7280; font-size: 0.95rem; margin: 0 0 1rem; }
+.qa-footnote { margin-top: 1.5rem; font-style: italic; }
+.qa-a a { color: #2563eb; text-decoration: underline; }
 
 .cta {
   font-size: 1rem;
