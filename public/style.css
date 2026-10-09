@@ -57,6 +57,21 @@ body {
 
 h1 { color: #f6821f; margin-top: 0; }
 
+/* ---- Home header: title left, logo top-right ---- */
+.home-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.home-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
 .cta {
   font-size: 1rem;
   padding: 0.5rem 1rem;
