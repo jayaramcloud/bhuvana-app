@@ -1258,14 +1258,307 @@ pm.environment.set(&#x27;createdId&#x27;, body.id);</code></pre><p class="qa-a">
         </div>
 
         <div class="subtab-pane" data-subpane="cypress">
-          <h2>Cypress</h2>
-          <ul>
-            <li>How does Cypress differ from Selenium in architecture?</li>
-            <li>How do you handle asynchronous commands and the Cypress chain?</li>
-            <li>What are custom commands and when would you use them?</li>
-            <li>How do you stub network requests with cy.intercept()?</li>
-            <li>How do you handle file uploads and downloads in Cypress?</li>
-          </ul>
+          <h2>Cypress Interview Questions and Answers</h2>
+          <p class="qa-note">Examples use Cypress with JavaScript. Some features and command options depend on the Cypress version and project setup.</p>
+          <h3 class="qa-group">Cypress Basics</h3>
+          <div class="qa-item">
+            <p class="qa-q">1. What is Cypress?</p>
+            <p class="qa-a">Cypress is a JavaScript-based testing framework for web applications. It is commonly used for end-to-end, component, and API testing.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">2. What types of testing can Cypress perform?</p>
+            <p class="qa-a">Cypress supports end-to-end testing and component testing. It can also make HTTP requests for API checks and test application behavior at the network level.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">3. Which browsers does Cypress support?</p>
+            <p class="qa-a">Cypress supports Chromium-based browsers, Firefox, and WebKit in supported configurations. Browser availability and behavior can vary by Cypress version and operating system.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">4. What is the difference between Cypress and Selenium?</p>
+            <p class="qa-a">Cypress runs in a browser-oriented architecture and provides built-in retries, a test runner, screenshots, and debugging tools. Selenium uses the WebDriver protocol and supports a wider range of languages and browser automation setups.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">5. What are some advantages of Cypress?</p>
+            <ul class="qa-a"><li>Automatic retrying for many commands and assertions.</li><li>Interactive test runner with time-travel snapshots.</li><li>Built-in screenshots, videos, and network stubbing.</li><li>Simple setup for JavaScript and TypeScript web projects.</li><li>Useful developer tools for debugging failures.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">6. What are some disadvantages of Cypress?</p>
+            <ul class="qa-a"><li>Cypress tests are primarily written in JavaScript or TypeScript.</li><li>Some workflows involving multiple browser tabs or domains need special handling.</li><li>Browser and execution support differs from WebDriver-based tools.</li><li>Tests can become brittle if they rely on implementation details or fixed waits.</li></ul>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">7. What is the Cypress Test Runner?</p>
+            <p class="qa-a">The Test Runner is Cypress&rsquo;s interactive interface for running and debugging tests. It shows commands, snapshots, network activity, and errors as a test executes.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">8. What is the Cypress Dashboard?</p>
+            <p class="qa-a">The Cypress Cloud service provides capabilities such as recorded test runs, parallelization, and run analytics, depending on the plan and configuration.</p>
+          </div>
+          <h3 class="qa-group">Setup and Test Structure</h3>
+          <div class="qa-item">
+            <p class="qa-q">9. How do you install Cypress?</p>
+            <pre class="qa-code" data-lang="bash"><code>npm install --save-dev cypress</code></pre><p class="qa-a">Open the Cypress app with:</p><pre class="qa-code" data-lang="bash"><code>npx cypress open</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">10. How do you run Cypress tests from the command line?</p>
+            <pre class="qa-code" data-lang="bash"><code>npx cypress run</code></pre><p class="qa-a">To open the interactive runner:</p><pre class="qa-code" data-lang="bash"><code>npx cypress open</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">11. What is <code>cypress.config.js</code> or <code>cypress.config.ts</code>?</p>
+            <p class="qa-a">It is the Cypress configuration file. It can define the base URL, test file patterns, viewport, retries, timeouts, and event handlers.</p><pre class="qa-code" data-lang="ts"><code>import { defineConfig } from &#x27;cypress&#x27;;
+
+export default defineConfig({
+  e2e: {
+    baseUrl: &#x27;https://example.com&#x27;,
+  },
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">12. What is <code>baseUrl</code>?</p>
+            <p class="qa-a"><code>baseUrl</code> is the application&rsquo;s root URL. Once configured, tests can use relative paths:</p><pre class="qa-code" data-lang="js"><code>cy.visit(&#x27;/login&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">13. What is the structure of a Cypress test?</p>
+            <p class="qa-a">Tests use <code>describe()</code> to group cases, <code>it()</code> or <code>specify()</code> to define a case, and Cypress commands such as <code>cy.visit()</code> and <code>cy.get()</code> to interact with the app.</p><pre class="qa-code" data-lang="js"><code>describe(&#x27;Home page&#x27;, () =&gt; {
+  it(&#x27;shows the page title&#x27;, () =&gt; {
+    cy.visit(&#x27;/&#x27;);
+    cy.contains(&#x27;Welcome&#x27;).should(&#x27;be.visible&#x27;);
+  });
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">14. What are fixtures in Cypress?</p>
+            <p class="qa-a">Fixtures are files that store reusable test data, often JSON. Load one with <code>cy.fixture()</code>.</p><pre class="qa-code" data-lang="js"><code>cy.fixture(&#x27;user.json&#x27;).then((user) =&gt; {
+  cy.get(&#x27;[name=email]&#x27;).type(user.email);
+});</code></pre>
+          </div>
+          <h3 class="qa-group">Selectors and Assertions</h3>
+          <div class="qa-item">
+            <p class="qa-q">15. How do you locate elements in Cypress?</p>
+            <p class="qa-a">Use <code>cy.get()</code> for CSS selectors and <code>cy.contains()</code> for text. Prefer stable selectors such as <code>data-cy</code> attributes.</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;submit&quot;]&#x27;);
+cy.contains(&#x27;button&#x27;, &#x27;Save&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">16. What are Cypress assertions?</p>
+            <p class="qa-a">Assertions verify that an expected condition is true. Cypress assertions retry until they pass or time out.</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;status&quot;]&#x27;).should(&#x27;have.text&#x27;, &#x27;Saved&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">17. What is the difference between <code>.should()</code> and <code>.and()</code>?</p>
+            <p class="qa-a">Both add assertions to a Cypress command chain. <code>.and()</code> is an alias commonly used to add another assertion after <code>.should()</code>.</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;button&#x27;)
+  .should(&#x27;be.visible&#x27;)
+  .and(&#x27;be.enabled&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">18. How do you assert that an element exists or is visible?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;message&quot;]&#x27;).should(&#x27;exist&#x27;);
+cy.get(&#x27;[data-cy=&quot;message&quot;]&#x27;).should(&#x27;be.visible&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">19. How do you verify that text appears on a page?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.contains(&#x27;Welcome back&#x27;).should(&#x27;be.visible&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">20. How do you check that a checkbox is selected?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;terms&quot;]&#x27;).check().should(&#x27;be.checked&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">21. How do you verify a negative condition?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;error&quot;]&#x27;).should(&#x27;not.exist&#x27;);
+cy.get(&#x27;[data-cy=&quot;spinner&quot;]&#x27;).should(&#x27;not.be.visible&#x27;);</code></pre>
+          </div>
+          <h3 class="qa-group">Browser Interaction</h3>
+          <div class="qa-item">
+            <p class="qa-q">22. How do you navigate to a page?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.visit(&#x27;/dashboard&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">23. How do you type into an input field?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[name=&quot;email&quot;]&#x27;).type(&#x27;person@example.com&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">24. How do you clear an input field?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[name=&quot;email&quot;]&#x27;).clear();</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">25. How do you select an option from a dropdown?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;select[name=&quot;country&quot;]&#x27;).select(&#x27;Canada&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">26. How do you hover over an element?</p>
+            <p class="qa-a">Cypress does not provide a native <code>.hover()</code> command. A common approach is to trigger relevant mouse events:</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;menu&quot;]&#x27;).trigger(&#x27;mouseover&#x27;);</code></pre><p class="qa-a">For applications that need full pointer movement, a plugin or another approach may be required.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">27. How do you perform a right-click?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;item&quot;]&#x27;).rightclick();</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">28. How do you handle alerts and confirms?</p>
+            <p class="qa-a">Listen for browser events with <code>cy.on()</code>:</p><pre class="qa-code" data-lang="js"><code>cy.on(&#x27;window:alert&#x27;, (text) =&gt; {
+  expect(text).to.equal(&#x27;Saved&#x27;);
+});
+
+cy.on(&#x27;window:confirm&#x27;, () =&gt; false); // dismiss the confirm</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">29. How do you work with iframes?</p>
+            <p class="qa-a">Cypress does not have a built-in iframe command. You can access the iframe&rsquo;s document and wrap it, or use a maintained plugin. Cross-origin restrictions and iframe loading need consideration.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">30. How do you upload a file?</p>
+            <p class="qa-a">Cypress does not include a universal built-in file-upload command in all setups. A common approach is the <code>selectFile()</code> command on a file input:</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;input[type=&quot;file&quot;]&#x27;).selectFile(&#x27;cypress/fixtures/sample.pdf&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">31. How do you download a file?</p>
+            <p class="qa-a">Trigger the download, then check that the expected file exists in the configured downloads folder. The exact approach depends on the app and Cypress configuration.</p>
+          </div>
+          <h3 class="qa-group">Network and API Testing</h3>
+          <div class="qa-item">
+            <p class="qa-q">32. What is <code>cy.intercept()</code>?</p>
+            <p class="qa-a"><code>cy.intercept()</code> spies on or stubs network requests. It can also assign an alias for waiting on a request.</p><pre class="qa-code" data-lang="js"><code>cy.intercept(&#x27;GET&#x27;, &#x27;/api/users&#x27;).as(&#x27;getUsers&#x27;);
+cy.visit(&#x27;/users&#x27;);
+cy.wait(&#x27;@getUsers&#x27;).its(&#x27;response.statusCode&#x27;).should(&#x27;eq&#x27;, 200);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">33. How do you mock an API response?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.intercept(&#x27;GET&#x27;, &#x27;/api/users&#x27;, {
+  statusCode: 200,
+  body: [{ id: 1, name: &#x27;Avery&#x27; }],
+}).as(&#x27;getUsers&#x27;);
+
+cy.visit(&#x27;/users&#x27;);
+cy.wait(&#x27;@getUsers&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">34. How do you make an API request directly?</p>
+            <p class="qa-a">Use <code>cy.request()</code>:</p><pre class="qa-code" data-lang="js"><code>cy.request(&#x27;GET&#x27;, &#x27;/api/users&#x27;).then((response) =&gt; {
+  expect(response.status).to.eq(200);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">35. What is the difference between <code>cy.request()</code> and <code>cy.intercept()</code>?</p>
+            <p class="qa-a"><code>cy.request()</code> sends an HTTP request directly from the test. <code>cy.intercept()</code> observes, modifies, or stubs network traffic made by the application.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">36. How do you test a POST API request?</p>
+            <pre class="qa-code" data-lang="js"><code>cy.request(&#x27;POST&#x27;, &#x27;/api/users&#x27;, {
+  name: &#x27;Avery&#x27;,
+  role: &#x27;QA&#x27;,
+}).then((response) =&gt; {
+  expect(response.status).to.eq(201);
+  expect(response.body.name).to.eq(&#x27;Avery&#x27;);
+});</code></pre>
+          </div>
+          <h3 class="qa-group">Variables, Hooks, and Test Data</h3>
+          <div class="qa-item">
+            <p class="qa-q">37. What are Cypress custom commands?</p>
+            <p class="qa-a">Custom commands extend Cypress&rsquo;s <code>cy</code> command interface with reusable operations, such as logging in or opening a common page.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">38. What are hooks in Cypress?</p>
+            <p class="qa-a">Hooks run setup or cleanup code around tests. Common hooks include <code>before()</code>, <code>beforeEach()</code>, <code>afterEach()</code>, and <code>after()</code>.</p><pre class="qa-code" data-lang="js"><code>beforeEach(() =&gt; {
+  cy.visit(&#x27;/login&#x27;);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">39. How do you share data between Cypress commands?</p>
+            <p class="qa-a">Cypress commands are queued and yield values asynchronously. Use <code>.then()</code> to access a yielded value and continue the chain.</p><pre class="qa-code" data-lang="js"><code>cy.get(&#x27;[data-cy=&quot;username&quot;]&#x27;).invoke(&#x27;text&#x27;).then((username) =&gt; {
+  expect(username).to.contain(&#x27;Avery&#x27;);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">40. What is a Cypress alias?</p>
+            <p class="qa-a">An alias gives a name to a subject, fixture, or intercepted request. Define it with <code>.as()</code> and access it with <code>cy.get('@name')</code> or <code>cy.wait('@name')</code>.</p><pre class="qa-code" data-lang="js"><code>cy.intercept(&#x27;GET&#x27;, &#x27;/api/orders&#x27;).as(&#x27;getOrders&#x27;);
+cy.wait(&#x27;@getOrders&#x27;);</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">41. How do you parameterize tests?</p>
+            <p class="qa-a">Use a data array and iterate over it:</p><pre class="qa-code" data-lang="js"><code>[&#x27;admin&#x27;, &#x27;editor&#x27;].forEach((role) =&gt; {
+  it(`shows the page for ${role}`, () =&gt; {
+    cy.visit(`/dashboard?role=${role}`);
+    cy.get(&#x27;[data-cy=&quot;dashboard&quot;]&#x27;).should(&#x27;be.visible&#x27;);
+  });
+});</code></pre>
+          </div>
+          <h3 class="qa-group">Execution and Debugging</h3>
+          <div class="qa-item">
+            <p class="qa-q">42. How do you run tests in a specific browser?</p>
+            <pre class="qa-code" data-lang="bash"><code>npx cypress run --browser chrome</code></pre><p class="qa-a">Available browsers depend on the installed browser and Cypress version.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">43. How do you run one spec file?</p>
+            <pre class="qa-code" data-lang="bash"><code>npx cypress run --spec &quot;cypress/e2e/login.cy.js&quot;</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">44. How do you run tests headlessly?</p>
+            <p class="qa-a"><code>cypress run</code> runs tests in the command-line runner, typically without the interactive Test Runner. You can choose a browser with <code>--browser</code>.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">45. What are screenshots and videos in Cypress?</p>
+            <p class="qa-a">Cypress can capture screenshots on failure and record videos during a <code>cypress run</code>, depending on the project configuration and version.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">46. How do you debug a Cypress test?</p>
+            <p class="qa-a">Use the interactive Test Runner, inspect command snapshots and browser DevTools, add <code>.debug()</code> or <code>cy.pause()</code>, and review screenshots, videos, and logs.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">47. What is test retrying in Cypress?</p>
+            <p class="qa-a">Cypress can rerun failed tests a configured number of times. Retries may help identify flaky behavior, but they do not replace fixing unreliable tests or application behavior.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">48. What is test isolation?</p>
+            <p class="qa-a">Test isolation means each test starts in a clean state, such as a fresh page and cleared browser state, according to Cypress configuration. It helps prevent tests from depending on each other.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">49. How can Cypress tests run in parallel?</p>
+            <p class="qa-a">Parallelization is available through Cypress Cloud for supported plans and configurations. Tests can be split across CI machines, with the Cloud coordinating spec distribution and reporting.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">50. What is the Cypress command queue?</p>
+            <p class="qa-a">Cypress commands are enqueued and executed later in order. They are not ordinary synchronous JavaScript promises, so commands should be chained or handled with Cypress&rsquo;s <code>.then()</code>.</p>
+          </div>
+          <h3 class="qa-group">More Advanced Questions</h3>
+          <div class="qa-item">
+            <p class="qa-q">51. What is cross-origin testing in Cypress?</p>
+            <p class="qa-a">Cross-origin testing involves visiting or interacting with a different origin. Modern Cypress supports certain cross-origin flows using <code>cy.origin()</code>, but the test must follow Cypress&rsquo;s rules for origin boundaries.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">52. What is <code>cy.origin()</code> used for?</p>
+            <p class="qa-a">It runs Cypress commands in the context of a specified origin, often for authentication flows that move between domains.</p><pre class="qa-code" data-lang="js"><code>cy.origin(&#x27;https://login.example.com&#x27;, () =&gt; {
+  cy.get(&#x27;input[name=&quot;username&quot;]&#x27;).type(&#x27;user&#x27;);
+});</code></pre>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">53. What is component testing in Cypress?</p>
+            <p class="qa-a">Component testing mounts an individual UI component in a real browser and tests its behavior independently from the full application.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">54. What is the Page Object Model?</p>
+            <p class="qa-a">The Page Object Model organizes page selectors and actions into reusable classes or objects. It can reduce duplication, but page objects should stay focused and avoid hiding test intent.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">55. What is a flaky test? How can you reduce flakiness?</p>
+            <p class="qa-a">A flaky test sometimes passes and sometimes fails without a relevant code change. Use stable selectors, wait for meaningful conditions, control test data, avoid fixed sleeps, and isolate tests from one another.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">56. What is the difference between <code>cy.wait(5000)</code> and waiting on an alias?</p>
+            <p class="qa-a"><code>cy.wait(5000)</code> pauses for a fixed duration and may be unnecessarily slow or still too short. <code>cy.wait('@requestAlias')</code> waits for a specific network request, making the test more purposeful.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">57. How do you handle authentication efficiently in Cypress?</p>
+            <p class="qa-a">For tests that do not need to verify the login flow itself, use a supported session strategy such as <code>cy.session()</code> to cache and restore authentication state. Keep separate tests that verify login behavior.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">58. What is <code>cy.session()</code>?</p>
+            <p class="qa-a"><code>cy.session()</code> caches and restores browser session data, such as cookies and local storage, to avoid repeating login setup in every test.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">59. How should test data be managed?</p>
+            <p class="qa-a">Use controlled test data through fixtures, API setup, or dedicated test environments. Make tests independent and clean up data when needed.</p>
+          </div>
+          <div class="qa-item">
+            <p class="qa-q">60. What are common causes of Cypress test failures?</p>
+            <p class="qa-a">Common causes include unstable selectors, incorrect test data, app timing issues, missing network waits, environment problems, cross-origin handling, and tests that depend on execution order.</p>
+          </div>
+          <p class="qa-note qa-footnote">For version-specific behavior and configuration, consult the <a href="https://docs.cypress.io/" target="_blank" rel="noopener">Cypress documentation</a>.</p>
         </div>
 
         <div class="subtab-pane" data-subpane="appium">
