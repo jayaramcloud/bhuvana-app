@@ -121,8 +121,8 @@ test.describe('Contact Us page', () => {
     await expect(page.locator('#contact')).toContainText('We would love to hear from you.');
   });
 
-  test('shows the Calgary address', async ({ page }) => {
-    await expect(page.locator('#contact')).toContainText('12345, Wonton Street, Calgary');
+  test('shows the London, ON address', async ({ page }) => {
+    await expect(page.locator('#contact')).toContainText('12345, Waffle Street, London, ON');
   });
 
   test('email link is a valid mailto', async ({ page }) => {
