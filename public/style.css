@@ -199,9 +199,19 @@ ul.qa-a li { margin-bottom: 0.3rem; }
 /* ---- Comparison tables inside Q&A ---- */
 .qa-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 0 0 0.75rem;
   font-size: 0.9rem;
+  table-layout: fixed;
+  display: block;
+  overflow-x: auto;
+}
+.qa-table thead,
+.qa-table tbody {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 .qa-table th,
 .qa-table td {
@@ -209,6 +219,7 @@ ul.qa-a li { margin-bottom: 0.3rem; }
   padding: 0.5rem 0.65rem;
   text-align: left;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 .qa-table th { background: #f3f4f6; color: #1f2937; font-weight: 600; }
 .qa-table tr:nth-child(even) td { background: #fafafa; }
@@ -247,5 +258,7 @@ a { color: #d96d10; }
   .nav-btn { padding: 0.5rem 0.75rem; }
   .content { margin-left: 0; padding: 1.5rem 1rem; }
   /* Logo would overlap the top nav bar on small screens */
-  .home-logo { position: static; width: 120px; max-height: 120px; margin-left: auto; }
+  .home-logo { position: static; width: 120px; height: auto; max-height: none; flex-shrink: 0; margin-left: auto; }
+  .content { padding: 1.25rem 1rem; }
+  .panel { padding: 1.25rem 1rem; }
 }
